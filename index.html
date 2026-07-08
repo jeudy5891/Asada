@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ASADA San Rafael de Ojo de Agua — Agua de Calidad para Nuestra Comunidad</title>
+  <meta name="description" content="Asociación Administradora de Acueducto y Alcantarillado San Rafael de Ojo de Agua. Agua potable de calidad para más de 4,918 usuarios en San Rafael de Alajuela." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Leaflet map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <style>
+    /* Extra overrides for index only */
+    .hero { margin-top: 0; }
+    .nav-link[data-section="inicio"].active { background: rgba(255,255,255,.15); }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════
+     HEADER
+════════════════════════════════════════ -->
+<header class="header" id="site-header">
+  <nav class="nav">
+
+    <!-- Logo -->
+    <a href="index.html" class="nav-logo">
+      <img src="Referencias/Imagenes/icono2.png" alt="ASADA San Rafael" class="nav-logo-icon" />
+      <div class="nav-logo-texts">
+        <span class="nav-logo-name">ASADA San Rafael</span>
+        <span class="nav-logo-sub">de Ojo de Agua</span>
+      </div>
+    </a>
+
+    <!-- Hamburger -->
+    <button class="hamburger" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+
+    <!-- Menu -->
+    <ul class="nav-menu">
+      <li><a href="#inicio" class="nav-link" data-section="inicio">Inicio</a></li>
+      <li><a href="tramites.html" class="nav-link">Trámites</a></li>
+
+      <!-- Nosotros dropdown -->
+      <li class="nav-dropdown">
+        <a href="nosotros.html" class="nav-link drop-toggle">
+          Nosotros <i class="fas fa-chevron-down"></i>
+        </a>
+        <div class="dropdown-menu">
+          <span class="dropdown-section">Nuestra organización</span>
+          <a href="nosotros.html#historia"    class="dropdown-item"><i class="fas fa-landmark"></i> Historia</a>
+          <a href="nosotros.html#mision"      class="dropdown-item"><i class="fas fa-bullseye"></i> Misión y Visión</a>
+          <a href="nosotros.html#datos"       class="dropdown-item"><i class="fas fa-chart-bar"></i> Datos Generales</a>
+          <a href="nosotros.html#junta"       class="dropdown-item"><i class="fas fa-users"></i> Junta Directiva</a>
+          <div class="dropdown-divider"></div>
+          <span class="dropdown-section">Calidad y red</span>
+          <a href="nosotros.html#sello"       class="dropdown-item"><i class="fas fa-certificate"></i> Sello de Calidad</a>
+          <a href="nosotros.html#red"         class="dropdown-item"><i class="fas fa-network-wired"></i> Red de Acueducto</a>
+        </div>
+      </li>
+
+      <li><a href="#recibos"  class="nav-link" data-section="recibos">Recibos</a></li>
+      <li><a href="#contacto" class="nav-link" data-section="contacto">Contacto</a></li>
+    </ul>
+
+  </nav>
+</header>
+
+
+<!-- ════════════════════════════════════════
+     HERO
+════════════════════════════════════════ -->
+<section id="inicio" class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <img src="Referencias/Imagenes/Logo2.png" alt="Logo ASADA San Rafael" class="hero-logo" />
+
+    <div class="section-label hero-badge" style="justify-content:center;color:var(--blue-300);">
+      <span style="width:36px;height:2px;background:var(--blue-400);border-radius:999px;display:inline-block;"></span>
+      Desde 1998 al servicio de la comunidad
+      <span style="width:36px;height:2px;background:var(--blue-400);border-radius:999px;display:inline-block;"></span>
+    </div>
+
+    <h1 class="hero-title">
+      Agua de <em>Calidad</em><br>para San Rafael de<br>Ojo de Agua
+    </h1>
+
+    <p class="hero-subtitle">
+      Brindamos el servicio de agua potable con eficiencia, continuidad y los más altos estándares de calidad para más de 4,900 familias de nuestra comunidad.
+    </p>
+
+    <div class="hero-ctas">
+      <a href="#recibos"    class="btn btn-white"><i class="fas fa-file-invoice"></i> Consultar Recibo</a>
+      <a href="tramites.html" class="btn btn-outline"><i class="fas fa-folder-open"></i> Ver Trámites</a>
+      <a href="#contacto"   class="btn btn-outline"><i class="fas fa-phone"></i> Contáctenos</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll" aria-hidden="true">
+    <span>Descubre más</span>
+    <i class="fas fa-chevron-down"></i>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     BARRA DE ESTADÍSTICAS
+════════════════════════════════════════ -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <i class="fas fa-users stat-icon"></i>
+        <span class="stat-number" data-count="4918">4,918</span>
+        <span class="stat-label">Usuarios activos</span>
+      </div>
+      <div class="stat-item">
+        <i class="fas fa-water stat-icon"></i>
+        <span class="stat-number" data-count="7">7</span>
+        <span class="stat-label">Sistemas de agua</span>
+      </div>
+      <div class="stat-item">
+        <i class="fas fa-check-circle stat-icon"></i>
+        <span class="stat-number" data-count="100">100</span><span class="stat-number">%</span>
+        <span class="stat-label">Agua desinfectada</span>
+      </div>
+      <div class="stat-item">
+        <i class="fas fa-calendar-alt stat-icon"></i>
+        <span class="stat-number" data-count="26">26</span>
+        <span class="stat-label">Años de servicio</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     SERVICIOS RÁPIDOS
+════════════════════════════════════════ -->
+<section class="section services-section">
+  <div class="container">
+    <p class="section-label">Lo que ofrecemos</p>
+    <h2 class="section-title">Nuestros Servicios</h2>
+    <p class="section-subtitle">Acceda de forma rápida y sencilla a los principales servicios que la ASADA San Rafael pone a su disposición.</p>
+
+    <div class="services-grid">
+
+      <a href="tramites.html" class="card service-card reveal delay-1">
+        <div class="svc-icon"><i class="fas fa-folder-open"></i></div>
+        <h3 class="svc-title">Trámites en Línea</h3>
+        <p class="svc-desc">Descargue formularios para nuevas conexiones, cambios de nombre, traslados de medidor, arreglos de pago y más.</p>
+        <span class="btn btn-ghost btn-sm">Ver trámites <i class="fas fa-arrow-right"></i></span>
+      </a>
+
+      <a href="#recibos" class="card service-card reveal delay-2">
+        <div class="svc-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+        <h3 class="svc-title">Consulta de Recibos</h3>
+        <p class="svc-desc">Consulte el estado de su cuenta, revise su historial de pagos y obtenga su recibo de agua en línea de manera inmediata.</p>
+        <span class="btn btn-ghost btn-sm">Consultar recibo <i class="fas fa-arrow-right"></i></span>
+      </a>
+
+      <a href="#contacto" class="card service-card reveal delay-3">
+        <div class="svc-icon"><i class="fas fa-headset"></i></div>
+        <h3 class="svc-title">Atención al Cliente</h3>
+        <p class="svc-desc">Estamos disponibles de lunes a sábado para atender sus consultas, reportar averías o solucionar cualquier inconveniente.</p>
+        <span class="btn btn-ghost btn-sm">Contáctenos <i class="fas fa-arrow-right"></i></span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SOBRE NOSOTROS (preview)
+════════════════════════════════════════ -->
+<section class="section about-section">
+  <div class="container">
+    <div class="about-grid">
+
+      <div class="about-img-wrap reveal-left">
+        <img src="Referencias/Imagenes/Equipo administrativo.jpg" alt="Equipo ASADA San Rafael" loading="lazy" />
+        <div class="about-img-badge">
+          <i class="fas fa-certificate"></i>
+          <div class="aib-text">
+            <strong>Sello AyA</strong>
+            <span>Calidad certificada</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-text reveal-right">
+        <p class="section-label" style="justify-content:flex-start;margin-bottom:.75rem;">
+          <span style="width:36px;height:2px;background:var(--blue-400);border-radius:999px;display:inline-block;"></span>
+          Quiénes somos
+        </p>
+        <h2>Comprometidos con el agua potable desde 1998</h2>
+        <p>
+          La <strong>Asociación Administradora de Acueducto y Alcantarillado San Rafael de Ojo de Agua</strong> nació el 9 de agosto de 1998, cuando la comunidad unida tomó el control de la gestión del agua para garantizar un servicio de calidad.
+        </p>
+        <p>
+          Hoy somos líderes en la prestación de un servicio público esencial, con el compromiso de brindar agua en cantidad, continuidad y calidad a cada uno de nuestros usuarios.
+        </p>
+        <ul class="about-features">
+          <li><i class="fas fa-check-circle"></i> 100% de cobertura en desinfección del agua</li>
+          <li><i class="fas fa-check-circle"></i> Micromedición y macromedición al 100%</li>
+          <li><i class="fas fa-check-circle"></i> Participantes activos del Sello de Calidad AyA</li>
+          <li><i class="fas fa-check-circle"></i> 7 sistemas de distribución en operación</li>
+          <li><i class="fas fa-check-circle"></i> Sistema de bombeo y tanques de concreto</li>
+        </ul>
+        <a href="nosotros.html" class="btn btn-primary">
+          <i class="fas fa-info-circle"></i> Conózcanos más
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     CONSULTA DE RECIBOS
+════════════════════════════════════════ -->
+<section id="recibos" class="section recibos-section">
+  <div class="container">
+    <div class="recibos-grid">
+
+      <div class="recibos-text reveal-left">
+        <p class="section-label" style="justify-content:flex-start;">
+          <span style="width:36px;height:2px;background:rgba(255,255,255,.4);border-radius:999px;display:inline-block;"></span>
+          Servicio en línea
+        </p>
+        <h2>Consulta tu Recibo<br>de Agua</h2>
+        <p>
+          Revise el estado de su cuenta y consulte su recibo de agua sin necesidad de acercarse a nuestras oficinas. Disponible las 24 horas del día.
+        </p>
+        <ul class="recibos-info">
+          <li><i class="fas fa-clock"></i> Disponible 24/7 en línea</li>
+          <li><i class="fas fa-print"></i> Imprima su recibo al instante</li>
+          <li><i class="fas fa-history"></i> Consulte su historial de pagos</li>
+          <li><i class="fas fa-bell"></i> Conozca la fecha de vencimiento</li>
+        </ul>
+        <p style="font-size:.875rem;color:rgba(255,255,255,.65);margin-bottom:0;">
+          También puede cancelar su recibo en nuestras oficinas o en los puntos de pago autorizados.
+        </p>
+      </div>
+
+      <div class="recibos-card reveal-right">
+        <h3><i class="fas fa-search" style="color:var(--blue-300);margin-right:.5rem;"></i>Consultar mi Recibo</h3>
+        <p>Ingrese el número de su medidor o cédula para consultar su estado de cuenta.</p>
+
+        <form id="recibosForm">
+          <div class="rc-form-group">
+            <label class="rc-label" for="rc-tipo">Tipo de consulta</label>
+            <select class="rc-input" id="rc-tipo" name="tipo">
+              <option value="medidor">Número de medidor</option>
+              <option value="cedula">Número de cédula</option>
+            </select>
+          </div>
+          <div class="rc-form-group">
+            <label class="rc-label" for="rc-numero">Número</label>
+            <input type="text" class="rc-input" id="rc-numero" name="numero"
+                   placeholder="Ej: 12345-6" autocomplete="off" />
+            <p class="rc-hint">Ingrese el número sin guiones ni espacios</p>
+          </div>
+          <button type="submit" class="btn btn-white" style="width:100%;justify-content:center;margin-top:.5rem;">
+            <i class="fas fa-search"></i> Consultar en línea
+          </button>
+        </form>
+
+        <p style="font-size:.75rem;color:rgba(255,255,255,.45);margin-top:1rem;text-align:center;">
+          Será redirigido al sistema de consulta oficial
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     NOTICIAS / ACTUALIDAD
+════════════════════════════════════════ -->
+<section class="section noticias-section">
+  <div class="container">
+    <p class="section-label">Actualidad</p>
+    <h2 class="section-title">Noticias y Comunicados</h2>
+    <p class="section-subtitle">Mantente informado sobre las actividades, mejoras y comunicados de la ASADA San Rafael.</p>
+
+    <div class="noticias-grid">
+
+      <article class="card noticia-card reveal delay-1">
+        <div class="noticia-img-wrap">
+          <img src="Referencias/Imagenes/noticia 1.jpg" alt="Noticia ASADA" class="noticia-img" loading="lazy" />
+        </div>
+        <div class="noticia-body">
+          <div class="noticia-meta">
+            <span class="badge badge-blue"><i class="fas fa-tint"></i> Calidad del Agua</span>
+            <span class="noticia-date"><i class="fas fa-calendar" style="margin-right:.25rem;"></i>2024</span>
+          </div>
+          <h3 class="noticia-title">Resultados del Análisis de Calidad del Agua — Sello AyA</h3>
+          <p class="noticia-excerpt">La ASADA San Rafael mantiene los más altos estándares de calidad certificados por el AyA en todos nuestros sistemas de distribución.</p>
+          <a href="nosotros.html#sello" class="noticia-link">Leer más <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <article class="card noticia-card reveal delay-2">
+        <div class="noticia-img-wrap">
+          <img src="Referencias/Imagenes/noticia 2.jpg" alt="Noticia ASADA" class="noticia-img" loading="lazy" />
+        </div>
+        <div class="noticia-body">
+          <div class="noticia-meta">
+            <span class="badge badge-blue"><i class="fas fa-solar-panel"></i> Sostenibilidad</span>
+            <span class="noticia-date"><i class="fas fa-calendar" style="margin-right:.25rem;"></i>2024</span>
+          </div>
+          <h3 class="noticia-title">Iniciativa Solar: Reduciendo el Impacto Ambiental de la ASADA</h3>
+          <p class="noticia-excerpt">Como parte de nuestro compromiso con el ambiente, avanzamos en iniciativas de energía solar para reducir nuestro impacto ambiental y costos operativos.</p>
+          <a href="https://www.facebook.com/ASADA.SNR/" target="_blank" rel="noopener" class="noticia-link">Ver en Facebook <i class="fas fa-external-link-alt"></i></a>
+        </div>
+      </article>
+
+      <article class="card noticia-card reveal delay-3">
+        <div class="noticia-img-wrap">
+          <img src="Referencias/Imagenes/noticia 3.jpg" alt="Noticia ASADA" class="noticia-img" loading="lazy" />
+        </div>
+        <div class="noticia-body">
+          <div class="noticia-meta">
+            <span class="badge badge-blue"><i class="fas fa-tools"></i> Mantenimiento</span>
+            <span class="noticia-date"><i class="fas fa-calendar" style="margin-right:.25rem;"></i>2024</span>
+          </div>
+          <h3 class="noticia-title">Actualización de Hidrantes y Cumplimiento de Normativas Legales</h3>
+          <p class="noticia-excerpt">La ASADA cumple con los requisitos legales sobre la instalación y mantenimiento de hidrantes en los 7 sistemas de la red de distribución.</p>
+          <a href="nosotros.html#red" class="noticia-link">Ver red acueducto <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+    </div>
+
+    <div style="text-align:center;margin-top:2rem;">
+      <a href="https://www.facebook.com/ASADA.SNR/" target="_blank" rel="noopener" class="btn btn-primary">
+        <i class="fab fa-facebook"></i> Ver todas las noticias en Facebook
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     CONTACTO
+════════════════════════════════════════ -->
+<section id="contacto" class="section contacto-section">
+  <div class="container">
+    <p class="section-label">Estamos aquí</p>
+    <h2 class="section-title">Contáctenos</h2>
+    <p class="section-subtitle">Visítenos, llámenos o escríbanos. Estamos para servirle de lunes a sábado.</p>
+
+    <div class="contacto-grid">
+
+      <!-- Información de contacto -->
+      <div class="contacto-info reveal-left">
+        <h2>¿Cómo podemos<br>ayudarle?</h2>
+        <p>Nuestro equipo está disponible para atender sus consultas, reportar averías, gestionar trámites y brindarle toda la información que necesite sobre su servicio de agua.</p>
+
+        <div class="ci-items">
+          <div class="ci-item">
+            <div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div>
+              <p class="ci-label">Dirección</p>
+              <p class="ci-value">Contiguo al Salón Comunal<br>San Rafael de Alajuela</p>
+            </div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon"><i class="fas fa-phone-alt"></i></div>
+            <div>
+              <p class="ci-label">Teléfono</p>
+              <p class="ci-value"><a href="tel:24382583" style="color:var(--blue-900);">2438-2583</a></p>
+            </div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <p class="ci-label">Correo electrónico</p>
+              <p class="ci-value"><a href="mailto:srdeojodeagua@asada.or.cr" style="color:var(--blue-900);">srdeojodeagua@asada.or.cr</a></p>
+            </div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon"><i class="fas fa-clock"></i></div>
+            <div>
+              <p class="ci-label">Horario de atención</p>
+              <div class="ci-hours">
+                <span><strong>Lun–Jue:</strong> 7:00 a.m. – 5:00 p.m.</span>
+                <span><strong>Viernes:</strong> 7:00 a.m. – 4:00 p.m.</span>
+                <span><strong>Sábado:</strong> 7:00 a.m. – 11:00 a.m.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:.75rem;flex-wrap:wrap;">
+          <a href="https://www.facebook.com/ASADA.SNR/" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+            <i class="fab fa-facebook"></i> Facebook
+          </a>
+          <a href="tel:24382583" class="btn btn-ghost btn-sm">
+            <i class="fas fa-phone"></i> Llamar ahora
+          </a>
+        </div>
+      </div>
+
+      <!-- Mapa + formulario -->
+      <div class="contacto-right reveal-right">
+
+        <div class="map-box">
+          <div id="map"></div>
+        </div>
+
+        <div class="contacto-form">
+          <h3><i class="fas fa-paper-plane" style="color:var(--blue-700);margin-right:.5rem;"></i>Envíenos un mensaje</h3>
+          <form id="contactoForm">
+            <div class="cf-row">
+              <div class="cf-group">
+                <label class="cf-label" for="cf-nombre">Nombre completo</label>
+                <input type="text" class="cf-input" id="cf-nombre" name="nombre" placeholder="Juan Pérez" required />
+              </div>
+              <div class="cf-group">
+                <label class="cf-label" for="cf-telefono">Teléfono</label>
+                <input type="tel" class="cf-input" id="cf-telefono" name="telefono" placeholder="8888-8888" />
+              </div>
+            </div>
+            <div class="cf-group">
+              <label class="cf-label" for="cf-email">Correo electrónico</label>
+              <input type="email" class="cf-input" id="cf-email" name="email" placeholder="correo@ejemplo.com" required />
+            </div>
+            <div class="cf-group">
+              <label class="cf-label" for="cf-asunto">Asunto</label>
+              <select class="cf-input" id="cf-asunto" name="asunto">
+                <option value="">Seleccione un asunto...</option>
+                <option value="averia">Reporte de avería</option>
+                <option value="tramite">Información sobre trámites</option>
+                <option value="recibo">Consulta sobre recibo</option>
+                <option value="nueva-conexion">Nueva conexión</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+            <div class="cf-group">
+              <label class="cf-label" for="cf-mensaje">Mensaje</label>
+              <textarea class="cf-input" id="cf-mensaje" name="mensaje" placeholder="Escriba su consulta aquí..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
+              <i class="fas fa-paper-plane"></i> Enviar mensaje
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <!-- Marca -->
+      <div class="footer-brand">
+        <img src="Referencias/Imagenes/Logo2.png" alt="ASADA San Rafael" class="fb-logo" />
+        <p>Asociación Administradora de Acueducto y Alcantarillado San Rafael de Ojo de Agua — comprometidos con llevar agua de calidad a nuestra comunidad desde 1998.</p>
+        <div class="social-links">
+          <a href="https://www.facebook.com/ASADA.SNR/" target="_blank" rel="noopener" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="mailto:srdeojodeagua@asada.or.cr" aria-label="Correo">
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a href="tel:24382583" aria-label="Teléfono">
+            <i class="fas fa-phone"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Navegación -->
+      <div>
+        <p class="ft-title">Navegación</p>
+        <ul class="ft-links">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="tramites.html">Trámites</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="#recibos">Consulta de Recibos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+
+      <!-- Nosotros -->
+      <div>
+        <p class="ft-title">Nosotros</p>
+        <ul class="ft-links">
+          <li><a href="nosotros.html#historia">Historia</a></li>
+          <li><a href="nosotros.html#mision">Misión y Visión</a></li>
+          <li><a href="nosotros.html#datos">Datos Generales</a></li>
+          <li><a href="nosotros.html#junta">Junta Directiva</a></li>
+          <li><a href="nosotros.html#sello">Sello de Calidad</a></li>
+          <li><a href="nosotros.html#red">Red de Acueducto</a></li>
+        </ul>
+      </div>
+
+      <!-- Contacto footer -->
+      <div>
+        <p class="ft-title">Contáctenos</p>
+        <div class="footer-contact">
+          <div class="fci"><i class="fas fa-map-marker-alt"></i><span>Contiguo al Salón Comunal, San Rafael de Alajuela</span></div>
+          <div class="fci"><i class="fas fa-phone-alt"></i><span><a href="tel:24382583" style="color:inherit;">2438-2583</a></span></div>
+          <div class="fci"><i class="fas fa-envelope"></i><span><a href="mailto:srdeojodeagua@asada.or.cr" style="color:inherit;">srdeojodeagua@asada.or.cr</a></span></div>
+          <div class="fci"><i class="fas fa-clock"></i>
+            <span>Lun–Jue: 7am–5pm<br>Vie: 7am–4pm | Sáb: 7am–11am</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 ASADA San Rafael de Ojo de Agua. Todos los derechos reservados.</p>
+      <p>Desarrollado con <i class="fas fa-heart" style="color:#ef4444;"></i> para la comunidad de San Rafael</p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- Scripts -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>

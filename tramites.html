@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trámites — ASADA San Rafael de Ojo de Agua</title>
+  <meta name="description" content="Descargue los formularios para trámites de agua: nueva conexión, cambio de nombre, traslado de medidor, arreglos de pago y más." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header class="header" id="site-header">
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <img src="Referencias/Imagenes/icono2.png" alt="ASADA San Rafael" class="nav-logo-icon" />
+      <div class="nav-logo-texts">
+        <span class="nav-logo-name">ASADA San Rafael</span>
+        <span class="nav-logo-sub">de Ojo de Agua</span>
+      </div>
+    </a>
+
+    <button class="hamburger" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav-menu">
+      <li><a href="index.html#inicio" class="nav-link">Inicio</a></li>
+      <li><a href="tramites.html"     class="nav-link active">Trámites</a></li>
+      <li class="nav-dropdown">
+        <a href="nosotros.html" class="nav-link drop-toggle">
+          Nosotros <i class="fas fa-chevron-down"></i>
+        </a>
+        <div class="dropdown-menu">
+          <span class="dropdown-section">Nuestra organización</span>
+          <a href="nosotros.html#historia" class="dropdown-item"><i class="fas fa-landmark"></i> Historia</a>
+          <a href="nosotros.html#mision"   class="dropdown-item"><i class="fas fa-bullseye"></i> Misión y Visión</a>
+          <a href="nosotros.html#datos"    class="dropdown-item"><i class="fas fa-chart-bar"></i> Datos Generales</a>
+          <a href="nosotros.html#junta"    class="dropdown-item"><i class="fas fa-users"></i> Junta Directiva</a>
+          <div class="dropdown-divider"></div>
+          <span class="dropdown-section">Calidad y red</span>
+          <a href="nosotros.html#sello"    class="dropdown-item"><i class="fas fa-certificate"></i> Sello de Calidad</a>
+          <a href="nosotros.html#red"      class="dropdown-item"><i class="fas fa-network-wired"></i> Red de Acueducto</a>
+        </div>
+      </li>
+      <li><a href="index.html#recibos"  class="nav-link">Recibos</a></li>
+      <li><a href="index.html#contacto" class="nav-link">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+<!-- ── PAGE HERO ── -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-content">
+      <nav class="breadcrumb" aria-label="Ruta">
+        <a href="index.html">Inicio</a>
+        <i class="fas fa-chevron-right"></i>
+        <span>Trámites</span>
+      </nav>
+      <p class="section-label page-hero-label" style="justify-content:flex-start;">
+        <span style="width:30px;height:2px;background:var(--blue-400);display:inline-block;border-radius:999px;"></span>
+        Formularios y gestiones
+      </p>
+      <h1 class="page-hero-title">Trámites y Servicios</h1>
+      <p class="page-hero-subtitle">
+        Descargue y complete los formularios necesarios para gestionar su servicio de agua. Puede entregarlos en nuestras oficinas o enviarnos sus consultas.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── CONTENIDO ── -->
+<section class="section" style="background:var(--gray-50);">
+  <div class="container">
+
+    <p class="section-label">Formularios disponibles</p>
+    <h2 class="section-title">Descargue su Formulario</h2>
+    <p class="section-subtitle">
+      Todos los trámites se realizan en nuestras oficinas. Descargue el formulario correspondiente, complételo y preséntelo con los requisitos indicados.
+    </p>
+
+    <div class="tramites-grid">
+
+      <div class="tramite-card reveal delay-1">
+        <div class="tramite-icon"><i class="fas fa-plus-circle"></i></div>
+        <div class="tramite-info">
+          <h3 class="tramite-title">Solicitud Nueva Conexión de Agua</h3>
+          <p class="tramite-desc">Para obtener una nueva conexión al servicio de agua potable en su propiedad.</p>
+          <a href="https://asada.or.cr/Documents/NUEVACONEXION.pdf" target="_blank" rel="noopener" class="tramite-link">
+            <i class="fas fa-file-pdf"></i> Descargar formulario
+          </a>
+        </div>
+      </div>
+
+      <div class="tramite-card reveal delay-2">
+        <div class="tramite-icon"><i class="fas fa-tint"></i></div>
+        <div class="tramite-info">
+          <h3 class="tramite-title">Solicitud Disponibilidad de Agua</h3>
+          <p class="tramite-desc">Consulta formal sobre la disponibilidad del servicio de agua para un inmueble o proyecto.</p>
+          <a href="https://asada.or.cr/Documents/DISPONIBILIDAD.pdf" target="_blank" rel="noopener" class="tramite-link">
+            <i class="fas fa-file-pdf"></i> Descargar formulario
+          </a>
+        </div>
+      </div>
+
+      <div class="tramite-card reveal delay-3">
+        <div class="tramite-icon"><i class="fas fa-user-edit"></i></div>
+        <div class="tramite-info">
+          <h3 class="tramite-title">Cambio de Nombre del Servicio</h3>
+          <p class="tramite-desc">Solicitud para transferir la titularidad del servicio de agua a nombre de otra persona.</p>
+          <a href="https://asada.or.cr/Documents/CAMBIONOMBRE.pdf" target="_blank" rel="noopener" class="tramite-link">
+            <i class="fas fa-file-pdf"></i> Descargar formulario
+          </a>
+        </div>
+      </div>
+
+      <div class="tramite-card reveal delay-1">
+        <div class="tramite-icon"><i class="fas fa-tachometer-alt"></i></div>
+        <div class="tramite-info">
+          <h3 class="tramite-title">Solicitud Traslado de Medidor</h3>
+          <p class="tramite-desc">Petición para reubicar el medidor de agua en un punto diferente de la propiedad.</p>
+          <a href="https://asada.or.cr/Documents/TRASLADOMEDIDOR.pdf" target="_blank" rel="noopener" class="tramite-link">
+            <i class="fas fa-file-pdf"></i> Descargar formulario
+          </a>
+        </div>
+      </div>
+
+      <div class="tramite-card reveal delay-2">
+        <div class="tramite-icon"><i class="fas fa-user-times"></i></div>
+        <div class="tramite-info">
+          <h3 class="tramite-title">Solicitud de Renuncia como Asociado</h3>
+          <p class="tramite-desc">Formulario para solicitar la baja como asociado de la ASADA San Rafael.</p>
+          <a href="https://asada.or.cr/Documents/RENUNCIAASOCIADO.pdf" target="_blank" rel="noopener" class="tramite-link">
+            <i class="fas fa-file-pdf"></i> Descargar formulario
+          </a>
+        </div>
+      </div>
+
+      <div class="tramite-card reveal delay-3">
+        <div class="tramite-icon"><i class="fas fa-times-circle"></i></div>
+        <div class="tramite-info">
+          <h3 class="tramite-title">Solicitud de Renuncia de Servicio</h3>
+          <p class="tramite-desc">Formulario para solicitar la cancelación definitiva del servicio de agua potable.</p>
+          <a href="https://asada.or.cr/Documents/RENUNCIASERVICIO.pdf" target="_blank" rel="noopener" class="tramite-link">
+            <i class="fas fa-file-pdf"></i> Descargar formulario
+          </a>
+        </div>
+      </div>
+
+      <div class="tramite-card reveal delay-1">
+        <div class="tramite-icon"><i class="fas fa-user-plus"></i></div>
+        <div class="tramite-info">
+          <h3 class="tramite-title">Inscripción Nuevo Asociado</h3>
+          <p class="tramite-desc">Formulario para inscribirse como nuevo asociado de la Asociación Administradora de Acueducto.</p>
+          <a href="https://asada.or.cr/Documents/INSCRIPCIONASOCIADO.pdf" target="_blank" rel="noopener" class="tramite-link">
+            <i class="fas fa-file-pdf"></i> Descargar formulario
+          </a>
+        </div>
+      </div>
+
+      <div class="tramite-card reveal delay-2">
+        <div class="tramite-icon"><i class="fas fa-home"></i></div>
+        <div class="tramite-info">
+          <h3 class="tramite-title">Arreglo de Pago Domiciliar</h3>
+          <p class="tramite-desc">Solicitud de plan de pago o arreglo de saldo pendiente para cuentas residenciales.</p>
+          <a href="https://asada.or.cr/Documents/SOLICITUD-ARREGLO-PAGO-DOMICILIAR.pdf" target="_blank" rel="noopener" class="tramite-link">
+            <i class="fas fa-file-pdf"></i> Descargar formulario
+          </a>
+        </div>
+      </div>
+
+      <div class="tramite-card reveal delay-3">
+        <div class="tramite-icon"><i class="fas fa-building"></i></div>
+        <div class="tramite-info">
+          <h3 class="tramite-title">Arreglo de Pago Empresarial</h3>
+          <p class="tramite-desc">Solicitud de plan de pago o arreglo de saldo pendiente para cuentas comerciales o empresariales.</p>
+          <a href="https://asada.or.cr/Documents/SOLICITUD-ARREGLO-PAGO-EMPRESARIAL.pdf" target="_blank" rel="noopener" class="tramite-link">
+            <i class="fas fa-file-pdf"></i> Descargar formulario
+          </a>
+        </div>
+      </div>
+
+      <div class="tramite-card reveal delay-1">
+        <div class="tramite-icon"><i class="fas fa-code-branch"></i></div>
+        <div class="tramite-info">
+          <h3 class="tramite-title">Solicitud de Independización de Servicio</h3>
+          <p class="tramite-desc">Trámite para independizar el servicio de agua de una propiedad compartida o subdividida.</p>
+          <a href="https://asada.or.cr/Documents/INDEPENDIZACIONPAJA.pdf" target="_blank" rel="noopener" class="tramite-link">
+            <i class="fas fa-file-pdf"></i> Descargar formulario
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- Información adicional -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem;" class="reveal">
+
+      <div class="tramites-aside">
+        <h3><i class="fas fa-info-circle" style="color:var(--blue-700);margin-right:.5rem;"></i>¿Cómo realizar un trámite?</h3>
+        <div class="ta-item"><i class="fas fa-download"></i><span>Descargue el formulario correspondiente</span></div>
+        <div class="ta-item"><i class="fas fa-pen"></i><span>Complételo con letra clara e impresión</span></div>
+        <div class="ta-item"><i class="fas fa-copy"></i><span>Adjunte los documentos requeridos</span></div>
+        <div class="ta-item"><i class="fas fa-walking"></i><span>Preséntese en nuestras oficinas en el horario de atención</span></div>
+        <div class="ta-item"><i class="fas fa-receipt"></i><span>Recibirá un comprobante de su solicitud</span></div>
+      </div>
+
+      <div class="tramites-aside">
+        <h3><i class="fas fa-clock" style="color:var(--blue-700);margin-right:.5rem;"></i>Horario de atención</h3>
+        <div class="ta-item">
+          <i class="fas fa-calendar-day"></i>
+          <span><strong>Lunes a Jueves:</strong> 7:00 a.m. – 5:00 p.m.</span>
+        </div>
+        <div class="ta-item">
+          <i class="fas fa-calendar-day"></i>
+          <span><strong>Viernes:</strong> 7:00 a.m. – 4:00 p.m.</span>
+        </div>
+        <div class="ta-item">
+          <i class="fas fa-calendar-day"></i>
+          <span><strong>Sábado:</strong> 7:00 a.m. – 11:00 a.m.</span>
+        </div>
+        <div class="ta-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Contiguo al Salón Comunal, San Rafael de Alajuela</span>
+        </div>
+        <div class="ta-item">
+          <i class="fas fa-phone"></i>
+          <span><a href="tel:24382583" style="color:var(--blue-700);font-weight:600;">2438-2583</a></span>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- CTA contacto -->
+    <div style="margin-top:2.5rem;text-align:center;background:linear-gradient(135deg,var(--blue-900),var(--blue-700));border-radius:var(--r-xl);padding:2.5rem;" class="reveal">
+      <h3 style="font-size:1.375rem;font-weight:800;color:var(--white);margin-bottom:.625rem;">¿Tiene alguna consulta?</h3>
+      <p style="color:rgba(255,255,255,.78);margin-bottom:1.75rem;font-size:1rem;">Nuestro equipo está listo para orientarle en cualquier trámite que necesite realizar.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <a href="index.html#contacto" class="btn btn-white"><i class="fas fa-envelope"></i> Contáctenos</a>
+        <a href="tel:24382583" class="btn btn-outline"><i class="fas fa-phone"></i> Llamar al 2438-2583</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="Referencias/Imagenes/Logo2.png" alt="ASADA San Rafael" class="fb-logo" />
+        <p>Asociación Administradora de Acueducto y Alcantarillado San Rafael de Ojo de Agua — comprometidos con llevar agua de calidad a nuestra comunidad desde 1998.</p>
+        <div class="social-links">
+          <a href="https://www.facebook.com/ASADA.SNR/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="mailto:srdeojodeagua@asada.or.cr" aria-label="Correo"><i class="fas fa-envelope"></i></a>
+          <a href="tel:24382583" aria-label="Teléfono"><i class="fas fa-phone"></i></a>
+        </div>
+      </div>
+      <div>
+        <p class="ft-title">Navegación</p>
+        <ul class="ft-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="tramites.html">Trámites</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="index.html#recibos">Consulta de Recibos</a></li>
+          <li><a href="index.html#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="ft-title">Trámites</p>
+        <ul class="ft-links">
+          <li><a href="https://asada.or.cr/Documents/NUEVACONEXION.pdf"   target="_blank" rel="noopener">Nueva Conexión</a></li>
+          <li><a href="https://asada.or.cr/Documents/DISPONIBILIDAD.pdf"  target="_blank" rel="noopener">Disponibilidad de Agua</a></li>
+          <li><a href="https://asada.or.cr/Documents/CAMBIONOMBRE.pdf"    target="_blank" rel="noopener">Cambio de Nombre</a></li>
+          <li><a href="https://asada.or.cr/Documents/TRASLADOMEDIDOR.pdf" target="_blank" rel="noopener">Traslado de Medidor</a></li>
+          <li><a href="https://asada.or.cr/Documents/INSCRIPCIONASOCIADO.pdf" target="_blank" rel="noopener">Nuevo Asociado</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="ft-title">Contáctenos</p>
+        <div class="footer-contact">
+          <div class="fci"><i class="fas fa-map-marker-alt"></i><span>Contiguo al Salón Comunal, San Rafael de Alajuela</span></div>
+          <div class="fci"><i class="fas fa-phone-alt"></i><span><a href="tel:24382583" style="color:inherit;">2438-2583</a></span></div>
+          <div class="fci"><i class="fas fa-envelope"></i><span><a href="mailto:srdeojodeagua@asada.or.cr" style="color:inherit;">srdeojodeagua@asada.or.cr</a></span></div>
+          <div class="fci"><i class="fas fa-clock"></i><span>Lun–Jue: 7am–5pm · Vie: 7am–4pm · Sáb: 7am–11am</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 ASADA San Rafael de Ojo de Agua. Todos los derechos reservados.</p>
+      <p>Desarrollado con <i class="fas fa-heart" style="color:#ef4444;"></i> para la comunidad de San Rafael</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nosotros — ASADA San Rafael de Ojo de Agua</title>
+  <meta name="description" content="Conozca la historia, misión, junta directiva y la red de acueducto de la ASADA San Rafael de Ojo de Agua." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    #mapHidrantes { width:100%; height:460px; border-radius:0 0 var(--r-lg) var(--r-lg); }
+    .leaflet-popup-content strong { color:#0c2d48; font-size:.875rem; }
+    .leaflet-popup-content span   { color:#475569; font-size:.8125rem; display:block; margin-top:.15rem; }
+    .hid-icon-wrap {
+      width:32px; height:32px;
+      background:#dc2626;
+      border-radius:50% 50% 50% 0;
+      transform:rotate(-45deg);
+      border:3px solid #fff;
+      box-shadow:0 3px 8px rgba(0,0,0,.35);
+      display:flex; align-items:center; justify-content:center;
+    }
+    .hid-icon-wrap span {
+      transform:rotate(45deg);
+      color:#fff;
+      font-size:11px;
+      font-weight:800;
+      font-family:'Inter',sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header class="header" id="site-header">
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <img src="Referencias/Imagenes/icono2.png" alt="ASADA San Rafael" class="nav-logo-icon" />
+      <div class="nav-logo-texts">
+        <span class="nav-logo-name">ASADA San Rafael</span>
+        <span class="nav-logo-sub">de Ojo de Agua</span>
+      </div>
+    </a>
+
+    <button class="hamburger" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav-menu">
+      <li><a href="index.html#inicio" class="nav-link">Inicio</a></li>
+      <li><a href="tramites.html"     class="nav-link">Trámites</a></li>
+      <li class="nav-dropdown">
+        <a href="nosotros.html" class="nav-link drop-toggle active">
+          Nosotros <i class="fas fa-chevron-down"></i>
+        </a>
+        <div class="dropdown-menu">
+          <span class="dropdown-section">Nuestra organización</span>
+          <a href="#historia" class="dropdown-item"><i class="fas fa-landmark"></i> Historia</a>
+          <a href="#mision"   class="dropdown-item"><i class="fas fa-bullseye"></i> Misión y Visión</a>
+          <a href="#datos"    class="dropdown-item"><i class="fas fa-chart-bar"></i> Datos Generales</a>
+          <a href="#junta"    class="dropdown-item"><i class="fas fa-users"></i> Junta Directiva</a>
+          <div class="dropdown-divider"></div>
+          <span class="dropdown-section">Calidad y red</span>
+          <a href="#sello"    class="dropdown-item"><i class="fas fa-certificate"></i> Sello de Calidad</a>
+          <a href="#red"      class="dropdown-item"><i class="fas fa-network-wired"></i> Red de Acueducto</a>
+        </div>
+      </li>
+      <li><a href="index.html#recibos"  class="nav-link">Recibos</a></li>
+      <li><a href="index.html#contacto" class="nav-link">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+<!-- ── PAGE HERO ── -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-content">
+      <nav class="breadcrumb" aria-label="Ruta">
+        <a href="index.html">Inicio</a>
+        <i class="fas fa-chevron-right"></i>
+        <span>Nosotros</span>
+      </nav>
+      <p class="section-label page-hero-label" style="justify-content:flex-start;">
+        <span style="width:30px;height:2px;background:var(--blue-400);display:inline-block;border-radius:999px;"></span>
+        Conózcanos
+      </p>
+      <h1 class="page-hero-title">Nuestra Organización</h1>
+      <p class="page-hero-subtitle">
+        Historia, valores, equipo y la red de acueducto que llevan agua de calidad a San Rafael de Ojo de Agua.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── CONTENIDO PRINCIPAL ── -->
+<div class="container">
+  <div class="nosotros-layout">
+
+    <!-- ── SIDEBAR ── -->
+    <aside class="nos-sidebar" aria-label="Navegación de secciones">
+      <div class="nos-sidebar-title"><i class="fas fa-list" style="margin-right:.5rem;"></i>Contenido</div>
+      <nav class="nos-nav" aria-label="Secciones Nosotros">
+        <a href="#historia" class="nos-nav-item active"><i class="fas fa-landmark"></i> Historia</a>
+        <a href="#mision"   class="nos-nav-item"><i class="fas fa-bullseye"></i> Misión y Visión</a>
+        <a href="#datos"    class="nos-nav-item"><i class="fas fa-chart-bar"></i> Datos Generales</a>
+        <a href="#junta"    class="nos-nav-item"><i class="fas fa-users"></i> Junta Directiva</a>
+        <a href="#sello"    class="nos-nav-item"><i class="fas fa-certificate"></i> Sello de Calidad</a>
+        <a href="#red"      class="nos-nav-item"><i class="fas fa-network-wired"></i> Red de Acueducto</a>
+      </nav>
+    </aside>
+
+    <!-- ── CONTENIDO ── -->
+    <main>
+
+      <!-- ════ HISTORIA ════ -->
+      <section id="historia" class="nos-section">
+        <div class="nos-section-header reveal">
+          <p class="section-label" style="justify-content:flex-start;margin-bottom:.5rem;">
+            <span style="width:28px;height:2px;background:var(--blue-400);display:inline-block;border-radius:999px;"></span>
+            Nuestros orígenes
+          </p>
+          <h2>Historia de la ASADA</h2>
+        </div>
+
+        <div class="timeline">
+
+          <div class="tl-item reveal delay-1">
+            <div class="tl-dot"></div>
+            <p class="tl-year">Época precolombina — 1774</p>
+            <h3 class="tl-title">Los primeros sistemas de agua</h3>
+            <p class="tl-body">
+              San Rafael históricamente dependió de fuentes naturales: los ríos Virilla, Segundo, Burío y Bermúdez, y el afamado manantial Ojo de Agua. Hasta alrededor de 1774, cuando colonos españoles construyeron las primeras acequias que permanecieron en uso comunitario por generaciones.
+            </p>
+          </div>
+
+          <div class="tl-item reveal delay-2">
+            <div class="tl-dot"></div>
+            <p class="tl-year">1917 — 1920</p>
+            <h3 class="tl-title">Primera tubería de hierro negro</h3>
+            <p class="tl-body">
+              Se construyó la primera tubería de hierro negro de muy poca capacidad, tomando agua de un manantial cercano a lo que hoy es Holcim. El sistema rápidamente resultó insuficiente ante el crecimiento poblacional, obligando a los vecinos a construir cisternas de piedra para recolectar agua durante la noche.
+            </p>
+          </div>
+
+          <div class="tl-item reveal delay-3">
+            <div class="tl-dot"></div>
+            <p class="tl-year">1955 — 1958</p>
+            <h3 class="tl-title">Segunda tubería moderna</h3>
+            <p class="tl-body">
+              Líderes comunales como Humberto Granados, Azarías Hernández, Sigifredo Alfaro y Otoniel Navarro gestionaron ante el gobernador provincial mejoras urgentes. Obtuvieron ¢60,000 en bonos cafeteros y construyeron una tubería moderna captando agua de Los Zamora, San Antonio de Belén, inaugurada en 1958.
+            </p>
+          </div>
+
+          <div class="tl-item reveal delay-4">
+            <div class="tl-dot"></div>
+            <p class="tl-year">9 de agosto de 1998</p>
+            <h3 class="tl-title">Fundación de la ASADA</h3>
+            <p class="tl-body">
+              Tras 50 años de escasez —agravada cuando el acueducto fue redirigido a La Guácima vecina— la comunidad unida protagonizó una histórica manifestación el 7 de agosto de 1998, cerrando todas las vías comunales. Dos días después, el 9 de agosto, las autoridades municipales transfirieron la administración del acueducto a la <strong>Asociación Comunal ASADA de San Rafael</strong>, transformando para siempre el servicio de agua en la comunidad.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- ════ MISIÓN Y VISIÓN ════ -->
+      <section id="mision" class="nos-section">
+        <div class="nos-section-header reveal">
+          <p class="section-label" style="justify-content:flex-start;margin-bottom:.5rem;">
+            <span style="width:28px;height:2px;background:var(--blue-400);display:inline-block;border-radius:999px;"></span>
+            Nuestros valores
+          </p>
+          <h2>Misión y Visión</h2>
+        </div>
+
+        <div class="mv-grid reveal">
+          <div class="mv-card mv-card-mision">
+            <div class="mv-icon"><i class="fas fa-bullseye"></i></div>
+            <h3 class="mv-title">Misión</h3>
+            <p class="mv-text">
+              Ser líder y ejemplo a nivel nacional en la prestación de un servicio público que implica salud y desarrollo.
+            </p>
+          </div>
+          <div class="mv-card mv-card-vision">
+            <div class="mv-icon"><i class="fas fa-eye"></i></div>
+            <h3 class="mv-title">Visión</h3>
+            <p class="mv-text">
+              Brindar el servicio de agua potable en cantidad, continuidad y calidad a cada uno de nuestros usuarios con eficiencia y eficacia, maximizando los recursos y logrando la satisfacción grupal e individual.
+            </p>
+          </div>
+        </div>
+
+        <!-- Valores -->
+        <div style="margin-top:2rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;" class="reveal">
+          <div style="background:var(--blue-50);border:1px solid var(--blue-100);border-radius:var(--r-lg);padding:1.25rem;text-align:center;">
+            <i class="fas fa-handshake" style="font-size:1.75rem;color:var(--blue-700);margin-bottom:.625rem;display:block;"></i>
+            <strong style="color:var(--blue-900);font-size:.9375rem;display:block;margin-bottom:.3rem;">Compromiso</strong>
+            <span style="font-size:.8125rem;color:var(--gray-600);">Con la comunidad y la calidad del servicio</span>
+          </div>
+          <div style="background:var(--blue-50);border:1px solid var(--blue-100);border-radius:var(--r-lg);padding:1.25rem;text-align:center;">
+            <i class="fas fa-leaf" style="font-size:1.75rem;color:var(--blue-700);margin-bottom:.625rem;display:block;"></i>
+            <strong style="color:var(--blue-900);font-size:.9375rem;display:block;margin-bottom:.3rem;">Sostenibilidad</strong>
+            <span style="font-size:.8125rem;color:var(--gray-600);">Cuidado responsable del recurso hídrico</span>
+          </div>
+          <div style="background:var(--blue-50);border:1px solid var(--blue-100);border-radius:var(--r-lg);padding:1.25rem;text-align:center;">
+            <i class="fas fa-star" style="font-size:1.75rem;color:var(--blue-700);margin-bottom:.625rem;display:block;"></i>
+            <strong style="color:var(--blue-900);font-size:.9375rem;display:block;margin-bottom:.3rem;">Calidad</strong>
+            <span style="font-size:.8125rem;color:var(--gray-600);">Altos estándares certificados por AyA</span>
+          </div>
+          <div style="background:var(--blue-50);border:1px solid var(--blue-100);border-radius:var(--r-lg);padding:1.25rem;text-align:center;">
+            <i class="fas fa-shield-alt" style="font-size:1.75rem;color:var(--blue-700);margin-bottom:.625rem;display:block;"></i>
+            <strong style="color:var(--blue-900);font-size:.9375rem;display:block;margin-bottom:.3rem;">Transparencia</strong>
+            <span style="font-size:.8125rem;color:var(--gray-600);">Gestión honesta y rendición de cuentas</span>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ════ DATOS GENERALES ════ -->
+      <section id="datos" class="nos-section">
+        <div class="nos-section-header reveal">
+          <p class="section-label" style="justify-content:flex-start;margin-bottom:.5rem;">
+            <span style="width:28px;height:2px;background:var(--blue-400);display:inline-block;border-radius:999px;"></span>
+            Cifras de nuestra organización
+          </p>
+          <h2>Datos Generales</h2>
+        </div>
+
+        <div class="datos-grid">
+          <div class="dato-card reveal delay-1">
+            <div class="dato-icon"><i class="fas fa-users"></i></div>
+            <div class="dato-value">4,918</div>
+            <div class="dato-label">Abonados activos</div>
+          </div>
+          <div class="dato-card reveal delay-2">
+            <div class="dato-icon"><i class="fas fa-water"></i></div>
+            <div class="dato-value">100%</div>
+            <div class="dato-label">Desinfección del agua</div>
+          </div>
+          <div class="dato-card reveal delay-3">
+            <div class="dato-icon"><i class="fas fa-tachometer-alt"></i></div>
+            <div class="dato-value">100%</div>
+            <div class="dato-label">Micromedición</div>
+          </div>
+          <div class="dato-card reveal delay-1">
+            <div class="dato-icon"><i class="fas fa-chart-line"></i></div>
+            <div class="dato-value">100%</div>
+            <div class="dato-label">Macromedición</div>
+          </div>
+          <div class="dato-card reveal delay-2">
+            <div class="dato-icon"><i class="fas fa-network-wired"></i></div>
+            <div class="dato-value">7</div>
+            <div class="dato-label">Sistemas de distribución</div>
+          </div>
+          <div class="dato-card reveal delay-3">
+            <div class="dato-icon"><i class="fas fa-calendar-check"></i></div>
+            <div class="dato-value">1998</div>
+            <div class="dato-label">Año de fundación</div>
+          </div>
+        </div>
+
+        <div style="margin-top:2rem;background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--r-lg);padding:1.5rem;" class="reveal">
+          <h3 style="font-size:1rem;font-weight:700;color:var(--blue-900);margin-bottom:1rem;">Información institucional</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem 2rem;">
+            <div>
+              <span style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--gray-400);display:block;margin-bottom:.2rem;">Nombre completo</span>
+              <span style="font-size:.9rem;color:var(--gray-700);">Asociación Administradora de Acueducto y Alcantarillado San Rafael de Ojo de Agua</span>
+            </div>
+            <div>
+              <span style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--gray-400);display:block;margin-bottom:.2rem;">Ubicación</span>
+              <span style="font-size:.9rem;color:var(--gray-700);">San Rafael de Alajuela, Contiguo al Salón Comunal</span>
+            </div>
+            <div>
+              <span style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--gray-400);display:block;margin-bottom:.2rem;">Método de suministro</span>
+              <span style="font-size:.9rem;color:var(--gray-700);">Sistema de bombeo</span>
+            </div>
+            <div>
+              <span style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--gray-400);display:block;margin-bottom:.2rem;">Desinfección</span>
+              <span style="font-size:.9rem;color:var(--gray-700);">Clorador de cámara seca</span>
+            </div>
+            <div>
+              <span style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--gray-400);display:block;margin-bottom:.2rem;">Teléfono</span>
+              <span style="font-size:.9rem;color:var(--gray-700);"><a href="tel:24382583" style="color:var(--blue-700);">2438-2583</a></span>
+            </div>
+            <div>
+              <span style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--gray-400);display:block;margin-bottom:.2rem;">Correo</span>
+              <span style="font-size:.9rem;"><a href="mailto:srdeojodeagua@asada.or.cr" style="color:var(--blue-700);">srdeojodeagua@asada.or.cr</a></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ════ JUNTA DIRECTIVA ════ -->
+      <section id="junta" class="nos-section">
+        <div class="nos-section-header reveal">
+          <p class="section-label" style="justify-content:flex-start;margin-bottom:.5rem;">
+            <span style="width:28px;height:2px;background:var(--blue-400);display:inline-block;border-radius:999px;"></span>
+            Quienes nos lideran
+          </p>
+          <h2>Junta Directiva</h2>
+        </div>
+
+        <p style="color:var(--gray-600);line-height:1.75;margin-bottom:1.5rem;" class="reveal">
+          Detrás del trabajo diario existen personas que dirigen e indican el camino a seguir. Nuestra Junta Directiva está comprometida con la transparencia y el servicio a la comunidad.
+        </p>
+
+        <div class="junta-photo-wrap reveal">
+          <img src="Referencias/Imagenes/Junta Directiva.jpg" alt="Junta Directiva ASADA San Rafael" loading="lazy" />
+        </div>
+
+        <div class="junta-grid">
+          <div class="junta-card reveal delay-1">
+            <div class="junta-avatar"><i class="fas fa-user-tie"></i></div>
+            <p class="junta-nombre">Juan Luis Céspedes Vargas</p>
+            <p class="junta-puesto">Presidente</p>
+          </div>
+          <div class="junta-card reveal delay-2">
+            <div class="junta-avatar"><i class="fas fa-user-tie"></i></div>
+            <p class="junta-nombre">Javier Rodríguez Murillo</p>
+            <p class="junta-puesto">Vicepresidente</p>
+          </div>
+          <div class="junta-card reveal delay-3">
+            <div class="junta-avatar"><i class="fas fa-user"></i></div>
+            <p class="junta-nombre">Luz Cambronero Hernández</p>
+            <p class="junta-puesto">Secretaria</p>
+          </div>
+          <div class="junta-card reveal delay-1">
+            <div class="junta-avatar"><i class="fas fa-user"></i></div>
+            <p class="junta-nombre">Estrella Herrera Ávila</p>
+            <p class="junta-puesto">Tesorera</p>
+          </div>
+          <div class="junta-card reveal delay-2">
+            <div class="junta-avatar"><i class="fas fa-user"></i></div>
+            <p class="junta-nombre">Sandra Méndez Mora</p>
+            <p class="junta-puesto">Vocal 1</p>
+          </div>
+          <div class="junta-card reveal delay-3">
+            <div class="junta-avatar"><i class="fas fa-user-tie"></i></div>
+            <p class="junta-nombre">Keylor Castro Chacón</p>
+            <p class="junta-puesto">Vocal 2</p>
+          </div>
+          <div class="junta-card reveal delay-1">
+            <div class="junta-avatar"><i class="fas fa-user-shield"></i></div>
+            <p class="junta-nombre">Sigifredo Ávila Zumbado</p>
+            <p class="junta-puesto">Auditor</p>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ════ SELLO DE CALIDAD ════ -->
+      <section id="sello" class="nos-section">
+        <div class="nos-section-header reveal">
+          <p class="section-label" style="justify-content:flex-start;margin-bottom:.5rem;">
+            <span style="width:28px;height:2px;background:var(--blue-400);display:inline-block;border-radius:999px;"></span>
+            Certificación AyA
+          </p>
+          <h2>Sello de Calidad Sanitaria</h2>
+        </div>
+
+        <div class="sello-intro reveal">
+          <i class="fas fa-award"></i>
+          <div>
+            <h3>Programa de Sello de Calidad Sanitaria del AyA</h3>
+            <p>
+              La ASADA San Rafael de Ojo de Agua participa activamente en el <strong>Programa de Sello de Calidad Sanitaria</strong> del Instituto Costarricense de Acueductos y Alcantarillados (AyA). Este programa exige un trabajo arduo durante todo el año para garantizar calidad en el servicio de agua potable. Los resultados de los análisis de potabilidad son públicos y reflejan nuestro compromiso con la transparencia y la salud de la comunidad.
+            </p>
+          </div>
+        </div>
+
+        <div class="reveal" style="overflow-x:auto;">
+          <table class="sello-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Sistema / Sector</th>
+                <th><i class="fas fa-flask" style="margin-right:.375rem;"></i>Análisis FQ1</th>
+                <th><i class="fas fa-flask" style="margin-right:.375rem;"></i>Análisis FQ2</th>
+                <th><i class="fas fa-file-alt" style="margin-right:.375rem;"></i>Informe OT</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td><strong>Sistema Julio Alfaro</strong></td>
+                <td><a href="https://asada.or.cr/sello-calidad.html" target="_blank" rel="noopener"><i class="fas fa-download"></i> FQ1</a></td>
+                <td><a href="https://asada.or.cr/sello-calidad.html" target="_blank" rel="noopener"><i class="fas fa-download"></i> FQ2</a></td>
+                <td><a href="https://asada.or.cr/sello-calidad.html" target="_blank" rel="noopener"><i class="fas fa-download"></i> OT</a></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td><strong>Sistema Los Portones</strong></td>
+                <td><a href="https://asada.or.cr/sello-calidad.html" target="_blank" rel="noopener"><i class="fas fa-download"></i> FQ1</a></td>
+                <td><a href="https://asada.or.cr/sello-calidad.html" target="_blank" rel="noopener"><i class="fas fa-download"></i> FQ2</a></td>
+                <td><a href="https://asada.or.cr/sello-calidad.html" target="_blank" rel="noopener"><i class="fas fa-download"></i> OT</a></td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td><strong>Urb. Los Rodríguez</strong></td>
+                <td><a href="https://asada.or.cr/sello-calidad.html" target="_blank" rel="noopener"><i class="fas fa-download"></i> FQ1</a></td>
+                <td><a href="https://asada.or.cr/sello-calidad.html" target="_blank" rel="noopener"><i class="fas fa-download"></i> FQ2</a></td>
+                <td><a href="https://asada.or.cr/sello-calidad.html" target="_blank" rel="noopener"><i class="fas fa-download"></i> OT</a></td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td><strong>San Rafael Centro</strong></td>
+                <td><a href="https://asada.or.cr/sello-calidad.html" target="_blank" rel="noopener"><i class="fas fa-download"></i> FQ1</a></td>
+                <td><a href="https://asada.or.cr/sello-calidad.html" target="_blank" rel="noopener"><i class="fas fa-download"></i> FQ2</a></td>
+                <td><a href="https://asada.or.cr/sello-calidad.html" target="_blank" rel="noopener"><i class="fas fa-download"></i> OT</a></td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td><strong>Urb. Sacramento</strong></td>
+                <td><a href="https://asada.or.cr/sello-calidad.html" target="_blank" rel="noopener"><i class="fas fa-download"></i> FQ1</a></td>
+                <td><a href="https://asada.or.cr/sello-calidad.html" target="_blank" rel="noopener"><i class="fas fa-download"></i> FQ2</a></td>
+                <td><a href="https://asada.or.cr/sello-calidad.html" target="_blank" rel="noopener"><i class="fas fa-download"></i> OT</a></td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td><strong>San Gerardo</strong></td>
+                <td><a href="https://asada.or.cr/sello-calidad.html" target="_blank" rel="noopener"><i class="fas fa-download"></i> FQ1</a></td>
+                <td><a href="https://asada.or.cr/sello-calidad.html" target="_blank" rel="noopener"><i class="fas fa-download"></i> FQ2</a></td>
+                <td><a href="https://asada.or.cr/sello-calidad.html" target="_blank" rel="noopener"><i class="fas fa-download"></i> OT</a></td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td><strong>Urb. Sonia Araujo</strong></td>
+                <td><a href="https://asada.or.cr/sello-calidad.html" target="_blank" rel="noopener"><i class="fas fa-download"></i> FQ1</a></td>
+                <td><a href="https://asada.or.cr/sello-calidad.html" target="_blank" rel="noopener"><i class="fas fa-download"></i> FQ2</a></td>
+                <td><a href="https://asada.or.cr/sello-calidad.html" target="_blank" rel="noopener"><i class="fas fa-download"></i> OT</a></td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td><strong>Sector Víctor Jiménez</strong></td>
+                <td><a href="https://asada.or.cr/sello-calidad.html" target="_blank" rel="noopener"><i class="fas fa-download"></i> FQ1</a></td>
+                <td><a href="https://asada.or.cr/sello-calidad.html" target="_blank" rel="noopener"><i class="fas fa-download"></i> FQ2</a></td>
+                <td><a href="https://asada.or.cr/sello-calidad.html" target="_blank" rel="noopener"><i class="fas fa-download"></i> OT</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size:.8125rem;color:var(--gray-400);margin-top:.75rem;" class="reveal">
+          <i class="fas fa-info-circle" style="margin-right:.3rem;"></i>
+          Análisis fisicoquímicos correspondientes a noviembre 2021. Para los documentos más recientes visite
+          <a href="https://asada.or.cr/sello-calidad.html" target="_blank" rel="noopener" style="color:var(--blue-700);">asada.or.cr/sello-calidad.html</a>
+        </p>
+      </section>
+
+
+      <!-- ════ RED DE ACUEDUCTO ════ -->
+      <section id="red" class="nos-section">
+        <div class="nos-section-header reveal">
+          <p class="section-label" style="justify-content:flex-start;margin-bottom:.5rem;">
+            <span style="width:28px;height:2px;background:var(--blue-400);display:inline-block;border-radius:999px;"></span>
+            Infraestructura hídrica
+          </p>
+          <h2>Red de Acueducto</h2>
+        </div>
+
+        <p style="color:var(--gray-600);line-height:1.75;margin-bottom:.75rem;" class="reveal">
+          La ASADA San Rafael opera <strong>7 sistemas de distribución de agua</strong> que cubren los diferentes sectores de la comunidad. Cada sistema cuenta con fuentes propias, almacenamiento y tratamiento para garantizar agua de calidad.
+        </p>
+        <p style="color:var(--gray-600);font-size:.875rem;margin-bottom:2rem;" class="reveal">
+          <i class="fas fa-fire-hydrant" style="color:var(--blue-600);margin-right:.4rem;"></i>
+          También puede <a href="https://asada.or.cr/hidrantes.html" target="_blank" rel="noopener" style="color:var(--blue-700);font-weight:600;">descargar la lista de ubicación de hidrantes</a> de toda la red.
+        </p>
+
+        <div class="sistemas-grid">
+
+          <div class="sistema-card reveal delay-1" data-id="1" onclick="openSistema(1)">
+            <div class="sistema-header">
+              <div class="sistema-num">1</div>
+              <div class="sistema-name">Sistema Principal</div>
+            </div>
+            <div class="sistema-body">
+              <p class="sistema-detail">Sistema de distribución central que abastece el casco principal de San Rafael de Ojo de Agua. Fuente: manantial Ojo de Agua.</p>
+              <div class="sistema-specs">
+                <div class="sistema-spec"><i class="fas fa-tint"></i> Manantial Ojo de Agua</div>
+                <div class="sistema-spec"><i class="fas fa-pump-soap"></i> Sistema de bombeo</div>
+                <div class="sistema-spec"><i class="fas fa-building"></i> Tanque de concreto asentado</div>
+              </div>
+              <div style="margin-top:.875rem;">
+                <span class="btn btn-ghost btn-sm">Ver detalles <i class="fas fa-expand-alt"></i></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sistema-card reveal delay-2" data-id="2" onclick="openSistema(2)">
+            <div class="sistema-header">
+              <div class="sistema-num">2</div>
+              <div class="sistema-name">Sistema Sacramento</div>
+            </div>
+            <div class="sistema-body">
+              <p class="sistema-detail">Abastece a la Urbanización Sacramento y sectores aledaños con agua de calidad certificada.</p>
+              <div class="sistema-specs">
+                <div class="sistema-spec"><i class="fas fa-map-marker-alt"></i> Urb. Sacramento</div>
+                <div class="sistema-spec"><i class="fas fa-certificate"></i> Sello de Calidad AyA</div>
+                <div class="sistema-spec"><i class="fas fa-check-circle"></i> 100% desinfectada</div>
+              </div>
+              <div style="margin-top:.875rem;">
+                <span class="btn btn-ghost btn-sm">Ver detalles <i class="fas fa-expand-alt"></i></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sistema-card reveal delay-3" data-id="3" onclick="openSistema(3)">
+            <div class="sistema-header">
+              <div class="sistema-num">3</div>
+              <div class="sistema-name">Sistema Los Rodríguez</div>
+            </div>
+            <div class="sistema-body">
+              <p class="sistema-detail">Sirve a la Urbanización Los Rodríguez con distribución continua y micromedición al 100%.</p>
+              <div class="sistema-specs">
+                <div class="sistema-spec"><i class="fas fa-map-marker-alt"></i> Urb. Los Rodríguez</div>
+                <div class="sistema-spec"><i class="fas fa-tachometer-alt"></i> Micromedición 100%</div>
+                <div class="sistema-spec"><i class="fas fa-certificate"></i> Sello de Calidad AyA</div>
+              </div>
+              <div style="margin-top:.875rem;">
+                <span class="btn btn-ghost btn-sm">Ver detalles <i class="fas fa-expand-alt"></i></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sistema-card reveal delay-1" data-id="4" onclick="openSistema(4)">
+            <div class="sistema-header">
+              <div class="sistema-num">4</div>
+              <div class="sistema-name">Sistema Los Portones</div>
+            </div>
+            <div class="sistema-body">
+              <p class="sistema-detail">Abastece el sector Los Portones con agua potable de alta calidad y cobertura continua.</p>
+              <div class="sistema-specs">
+                <div class="sistema-spec"><i class="fas fa-map-marker-alt"></i> Sector Los Portones</div>
+                <div class="sistema-spec"><i class="fas fa-certificate"></i> Sello de Calidad AyA</div>
+                <div class="sistema-spec"><i class="fas fa-check-circle"></i> 100% desinfectada</div>
+              </div>
+              <div style="margin-top:.875rem;">
+                <span class="btn btn-ghost btn-sm">Ver detalles <i class="fas fa-expand-alt"></i></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sistema-card reveal delay-2" data-id="5" onclick="openSistema(5)">
+            <div class="sistema-header">
+              <div class="sistema-num">5</div>
+              <div class="sistema-name">Sistema La Melisa</div>
+            </div>
+            <div class="sistema-body">
+              <p class="sistema-detail">Distribuye agua a los usuarios del sector La Melisa con infraestructura moderna y mantenimiento constante.</p>
+              <div class="sistema-specs">
+                <div class="sistema-spec"><i class="fas fa-map-marker-alt"></i> Sector La Melisa</div>
+                <div class="sistema-spec"><i class="fas fa-pump-soap"></i> Sistema de bombeo</div>
+                <div class="sistema-spec"><i class="fas fa-tachometer-alt"></i> Micromedición 100%</div>
+              </div>
+              <div style="margin-top:.875rem;">
+                <span class="btn btn-ghost btn-sm">Ver detalles <i class="fas fa-expand-alt"></i></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sistema-card reveal delay-3" data-id="6" onclick="openSistema(6)">
+            <div class="sistema-header">
+              <div class="sistema-num">6</div>
+              <div class="sistema-name">Sistema Julio Alfaro</div>
+            </div>
+            <div class="sistema-body">
+              <p class="sistema-detail">Cubre el sector Julio Alfaro con distribución de agua potable certificada y servicio de calidad.</p>
+              <div class="sistema-specs">
+                <div class="sistema-spec"><i class="fas fa-map-marker-alt"></i> Sector Julio Alfaro</div>
+                <div class="sistema-spec"><i class="fas fa-certificate"></i> Sello de Calidad AyA</div>
+                <div class="sistema-spec"><i class="fas fa-check-circle"></i> 100% desinfectada</div>
+              </div>
+              <div style="margin-top:.875rem;">
+                <span class="btn btn-ghost btn-sm">Ver detalles <i class="fas fa-expand-alt"></i></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sistema-card reveal delay-1" data-id="7" onclick="openSistema(7)">
+            <div class="sistema-header">
+              <div class="sistema-num">7</div>
+              <div class="sistema-name">Sistema Sonia Araujo</div>
+            </div>
+            <div class="sistema-body">
+              <p class="sistema-detail">Abastece la Urbanización Sonia Araujo con infraestructura dedicada y análisis de calidad periódicos.</p>
+              <div class="sistema-specs">
+                <div class="sistema-spec"><i class="fas fa-map-marker-alt"></i> Urb. Sonia Araujo</div>
+                <div class="sistema-spec"><i class="fas fa-certificate"></i> Sello de Calidad AyA</div>
+                <div class="sistema-spec"><i class="fas fa-tachometer-alt"></i> Micromedición 100%</div>
+              </div>
+              <div style="margin-top:.875rem;">
+                <span class="btn btn-ghost btn-sm">Ver detalles <i class="fas fa-expand-alt"></i></span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Mapa de Hidrantes -->
+        <div style="margin-top:2rem;" class="reveal">
+
+          <!-- Header del mapa -->
+          <div style="background:linear-gradient(135deg,var(--blue-900),var(--blue-700));border-radius:var(--r-lg) var(--r-lg) 0 0;padding:1.25rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
+            <div style="display:flex;align-items:center;gap:.875rem;">
+              <div style="width:44px;height:44px;background:rgba(255,255,255,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <i class="fas fa-fire-extinguisher" style="font-size:1.25rem;color:var(--blue-300);"></i>
+              </div>
+              <div>
+                <h3 style="font-size:1rem;font-weight:700;color:var(--white);margin-bottom:.125rem;">Mapa de Localización de Hidrantes</h3>
+                <p style="font-size:.8125rem;color:rgba(255,255,255,.7);">22 hidrantes distribuidos en la red de acueducto · Haga clic en cada punto para ver la ubicación</p>
+              </div>
+            </div>
+            <a href="https://asada.or.cr/hidrantes.html" target="_blank" rel="noopener" class="btn btn-white btn-sm">
+              <i class="fas fa-download"></i> Descargar lista completa
+            </a>
+          </div>
+
+          <!-- Mapa Leaflet -->
+          <div style="border:1px solid var(--gray-200);border-top:none;border-radius:0 0 var(--r-lg) var(--r-lg);overflow:hidden;box-shadow:var(--shadow-md);">
+            <div id="mapHidrantes"></div>
+          </div>
+
+          <!-- Leyenda -->
+          <div style="margin-top:.875rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
+            <div style="display:flex;align-items:center;gap:.5rem;font-size:.8125rem;color:var(--gray-600);">
+              <span style="width:16px;height:16px;background:#dc2626;border-radius:50%;display:inline-block;border:2px solid #fff;box-shadow:0 2px 4px rgba(0,0,0,.25);"></span>
+              Hidrante activo
+            </div>
+            <div style="display:flex;align-items:center;gap:.5rem;font-size:.8125rem;color:var(--gray-600);">
+              <span style="width:16px;height:16px;background:#0369a1;border-radius:50%;display:inline-block;border:2px solid #fff;box-shadow:0 2px 4px rgba(0,0,0,.25);"></span>
+              Oficina ASADA
+            </div>
+            <span style="font-size:.8125rem;color:var(--gray-400);">
+              <i class="fas fa-info-circle" style="margin-right:.25rem;"></i>
+              Ubicaciones de referencia aproximadas
+            </span>
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+</div>
+
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="Referencias/Imagenes/Logo2.png" alt="ASADA San Rafael" class="fb-logo" />
+        <p>Asociación Administradora de Acueducto y Alcantarillado San Rafael de Ojo de Agua — comprometidos con llevar agua de calidad a nuestra comunidad desde 1998.</p>
+        <div class="social-links">
+          <a href="https://www.facebook.com/ASADA.SNR/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="mailto:srdeojodeagua@asada.or.cr" aria-label="Correo"><i class="fas fa-envelope"></i></a>
+          <a href="tel:24382583" aria-label="Teléfono"><i class="fas fa-phone"></i></a>
+        </div>
+      </div>
+      <div>
+        <p class="ft-title">Navegación</p>
+        <ul class="ft-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="tramites.html">Trámites</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="index.html#recibos">Consulta de Recibos</a></li>
+          <li><a href="index.html#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="ft-title">Nosotros</p>
+        <ul class="ft-links">
+          <li><a href="#historia">Historia</a></li>
+          <li><a href="#mision">Misión y Visión</a></li>
+          <li><a href="#datos">Datos Generales</a></li>
+          <li><a href="#junta">Junta Directiva</a></li>
+          <li><a href="#sello">Sello de Calidad</a></li>
+          <li><a href="#red">Red de Acueducto</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="ft-title">Contáctenos</p>
+        <div class="footer-contact">
+          <div class="fci"><i class="fas fa-map-marker-alt"></i><span>Contiguo al Salón Comunal, San Rafael de Alajuela</span></div>
+          <div class="fci"><i class="fas fa-phone-alt"></i><span><a href="tel:24382583" style="color:inherit;">2438-2583</a></span></div>
+          <div class="fci"><i class="fas fa-envelope"></i><span><a href="mailto:srdeojodeagua@asada.or.cr" style="color:inherit;">srdeojodeagua@asada.or.cr</a></span></div>
+          <div class="fci"><i class="fas fa-clock"></i><span>Lun–Jue: 7am–5pm · Vie: 7am–4pm · Sáb: 7am–11am</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 ASADA San Rafael de Ojo de Agua. Todos los derechos reservados.</p>
+      <p>Desarrollado con <i class="fas fa-heart" style="color:#ef4444;"></i> para la comunidad de San Rafael</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+
+<!-- ── MODAL SISTEMAS ── -->
+<div class="modal-overlay" id="sistemaModal" onclick="closeSistema(event)">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+
+    <button class="modal-close" onclick="closeSistema()" aria-label="Cerrar">
+      <i class="fas fa-times"></i>
+    </button>
+
+    <!-- Imagen -->
+    <div id="modalImgWrap"></div>
+
+    <!-- Cuerpo -->
+    <div class="modal-body">
+      <div class="modal-heading">
+        <div class="modal-sys-num" id="modalNum"></div>
+        <div>
+          <div class="modal-sys-title" id="modalTitle"></div>
+          <div class="modal-sys-sub">Red de Acueducto — ASADA San Rafael</div>
+        </div>
+      </div>
+
+      <div class="modal-stats" id="modalStats"></div>
+
+      <div class="modal-badges" id="modalBadges"></div>
+
+      <div class="modal-footer-note" id="modalNote"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const SISTEMAS = {
+  1: {
+    nombre:      "Sistema Principal",
+    img:         "https://asada.or.cr/images/portfolio/SistemaPrincipal.png",
+    fuente:      "Manantial \"Ojo de Agua\"",
+    suministro:  "Bombeo",
+    tanque:      "Concreto Asentado",
+    desinfeccion:"Clorinador de Cámara Seca",
+    desinfPct:   "100%",
+    micro:       "100%",
+    macro:       "100%",
+    sello:       true,
+    propiedad:   "Propiedad de la ASADA, cercada con malla y alambre de púas"
+  },
+  2: {
+    nombre:      "Sistema Sacramento",
+    img:         "https://asada.or.cr/images/portfolio/SistemaSacramento.png",
+    fuente:      "Pozo Perforado",
+    suministro:  "Bombeo",
+    tanque:      "Concreto Asentado",
+    desinfeccion:"Clorinador de Cámara Seca",
+    desinfPct:   "100%",
+    micro:       "100%",
+    macro:       "100%",
+    sello:       true,
+    propiedad:   "Propiedad de la ASADA, cercada con malla y alambre navaja"
+  },
+  3: {
+    nombre:      "Sistema Los Rodríguez",
+    img:         "https://asada.or.cr/images/portfolio/SistemaRodriguez.png",
+    fuente:      "Pozo Perforado",
+    suministro:  "Bombeo",
+    tanque:      "Elevado — Estructura de Acero",
+    desinfeccion:"Clorinador de Cámara Seca",
+    desinfPct:   "100%",
+    micro:       "100%",
+    macro:       "100%",
+    sello:       true,
+    propiedad:   "Propiedad de la ASADA, cercada con malla y alambre púa"
+  },
+  4: {
+    nombre:      "Sistema Los Portones",
+    img:         "https://asada.or.cr/images/portfolio/SistemaPortones1.png",
+    fuente:      "Pozo Perforado",
+    suministro:  "Bombeo",
+    tanque:      "Elevado — Estructura de Acero",
+    desinfeccion:"Clorinador de Cámara Seca",
+    desinfPct:   "100%",
+    micro:       "100%",
+    macro:       "100%",
+    sello:       true,
+    propiedad:   "Propiedad de la ASADA, cercada con malla y alambre púa"
+  },
+  5: {
+    nombre:      "Sistema La Melisa",
+    img:         "https://asada.or.cr/images/portfolio/SistemaMelisa1.png",
+    fuente:      "Pozo Perforado",
+    suministro:  "Bombeo",
+    tanque:      "Elevado — Estructura de Acero",
+    desinfeccion:"Clorinador de Cámara Seca",
+    desinfPct:   "100%",
+    micro:       "100%",
+    macro:       "100%",
+    sello:       false,
+    propiedad:   "Propiedad de la ASADA, cercada con malla y alambre púa"
+  },
+  6: {
+    nombre:      "Sistema Julio Alfaro",
+    img:         null,
+    fuente:      "Pozo Perforado",
+    suministro:  "Bombeo",
+    tanque:      "Concreto Asentado",
+    desinfeccion:"Clorinador de Cámara Seca",
+    desinfPct:   "100%",
+    micro:       "100%",
+    macro:       "100%",
+    sello:       true,
+    propiedad:   "Propiedad de la ASADA, cercada con malla y alambre púa"
+  },
+  7: {
+    nombre:      "Sistema Sonia Araujo",
+    img:         null,
+    fuente:      "Pozo Perforado",
+    suministro:  "Bombeo",
+    tanque:      "Elevado — Estructura de Acero",
+    desinfeccion:"Clorador de Cámara Seca",
+    desinfPct:   "100%",
+    micro:       "100%",
+    macro:       "100%",
+    sello:       true,
+    propiedad:   "Propiedad de la ASADA, cercada con malla y alambre púa"
+  }
+};
+
+function openSistema(id) {
+  const s   = SISTEMAS[id];
+  const mo  = document.getElementById('sistemaModal');
+
+  // Número y título
+  document.getElementById('modalNum').textContent   = id;
+  document.getElementById('modalTitle').textContent = s.nombre;
+
+  // Imagen
+  const wrap = document.getElementById('modalImgWrap');
+  if (s.img) {
+    const imgEl = document.createElement('img');
+    imgEl.src       = s.img;
+    imgEl.alt       = 'Foto ' + s.nombre;
+    imgEl.className = 'modal-img';
+    imgEl.onerror   = () => { wrap.innerHTML = placeholder(); };
+    wrap.innerHTML  = '';
+    wrap.appendChild(imgEl);
+  } else {
+    wrap.innerHTML = placeholder();
+  }
+
+  // Stats grid
+  const stats = [
+    { icon: 'fas fa-tint',          label: 'Fuente de agua',       value: s.fuente },
+    { icon: 'fas fa-pump-soap',     label: 'Tipo de suministro',   value: s.suministro },
+    { icon: 'fas fa-database',      label: 'Almacenamiento',       value: s.tanque },
+    { icon: 'fas fa-flask',         label: 'Desinfección',         value: s.desinfeccion },
+    { icon: 'fas fa-check-double',  label: 'Agua desinfectada',    value: s.desinfPct },
+    { icon: 'fas fa-tachometer-alt',label: 'Micromedición',        value: s.micro },
+    { icon: 'fas fa-chart-bar',     label: 'Macromedición',        value: s.macro },
+  ];
+  document.getElementById('modalStats').innerHTML = stats.map(st => `
+    <div class="modal-stat">
+      <i class="${st.icon}"></i>
+      <div>
+        <span class="modal-stat-label">${st.label}</span>
+        <span class="modal-stat-value">${st.value}</span>
+      </div>
+    </div>
+  `).join('');
+
+  // Badges
+  let badges = '';
+  if (s.sello) {
+    badges += `<span class="modal-badge modal-badge-sello"><i class="fas fa-certificate"></i> Sello de Calidad AyA</span>`;
+  }
+  badges += `<span class="modal-badge modal-badge-prop"><i class="fas fa-shield-alt"></i> Propiedad ASADA</span>`;
+  document.getElementById('modalBadges').innerHTML = badges;
+
+  // Nota de propiedad
+  document.getElementById('modalNote').innerHTML =
+    `<i class="fas fa-info-circle"></i><span>${s.propiedad}</span>`;
+
+  // Abrir
+  mo.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeSistema(e) {
+  if (e && e.target !== document.getElementById('sistemaModal')) return;
+  document.getElementById('sistemaModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function placeholder() {
+  return `<div class="modal-img-placeholder">
+    <i class="fas fa-water"></i>
+    <span>Imagen no disponible</span>
+  </div>`;
+}
+
+// Cerrar con Escape
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.getElementById('sistemaModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
+</script>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+/* ── MAPA DE HIDRANTES ── */
+(function () {
+  const ASADA = [9.973762, -84.21057];
+
+  const HIDRANTES = [
+    { n:  1, loc: "Entrada acceso Tanque Principal",                  lat: 9.97376, lng: -84.21057 },
+    { n:  2, loc: "Frente Hotel El Rodeo",                            lat: 9.97428, lng: -84.21130 },
+    { n:  3, loc: "Frente Entrada Calle Loma Linda",                  lat: 9.97285, lng: -84.20985 },
+    { n:  4, loc: "Frente Condominio Reserva La Rambla, Loma Linda",  lat: 9.97248, lng: -84.20910 },
+    { n:  5, loc: "Frente a Portón de acceso Pozo Los Rodríguez",     lat: 9.97558, lng: -84.20830 },
+    { n:  6, loc: "Frente a Escuela Saint Paul en Calle Principal",   lat: 9.97462, lng: -84.21210 },
+    { n:  7, loc: "Diagonal Salón Comunal Urb. Sacramento",           lat: 9.97705, lng: -84.21060 },
+    { n:  8, loc: "50 m al Oeste de entrada de Urb. Sacramento",      lat: 9.97720, lng: -84.21145 },
+    { n:  9, loc: "200 m al Oeste de Motochoper",                     lat: 9.97335, lng: -84.21390 },
+    { n: 10, loc: "50 m al Este de Motochoper",                       lat: 9.97335, lng: -84.21270 },
+    { n: 11, loc: "Frente a costado Sur Escuela Saint Paul",          lat: 9.97445, lng: -84.21240 },
+    { n: 12, loc: "Frente a Sagrada Familia",                         lat: 9.97385, lng: -84.21160 },
+    { n: 13, loc: "Frente a Bar 7 Provincias",                        lat: 9.97492, lng: -84.21260 },
+    { n: 14, loc: "Frente a Frenos San Rafael",                       lat: 9.97503, lng: -84.21185 },
+    { n: 15, loc: "Diagonal Bar la Mazorca",                          lat: 9.97525, lng: -84.21310 },
+    { n: 16, loc: "Contiguo Taller Seymo",                            lat: 9.97542, lng: -84.21160 },
+    { n: 17, loc: "Diagonal Entrada Holcim",                          lat: 9.97195, lng: -84.21510 },
+    { n: 18, loc: "50 m al Norte de entrada Cobesa",                  lat: 9.97805, lng: -84.21025 },
+    { n: 19, loc: "Salida Calle 4",                                    lat: 9.97318, lng: -84.21090 },
+    { n: 20, loc: "Salida Calle 6",                                    lat: 9.97298, lng: -84.21160 },
+    { n: 21, loc: "Costado Cristo de Piedra",                         lat: 9.97362, lng: -84.21025 },
+    { n: 22, loc: "Costado Sur de Iglesia Católica",                  lat: 9.97412, lng: -84.21075 },
+  ];
+
+  const map = L.map('mapHidrantes', { scrollWheelZoom: false })
+               .setView(ASADA, 15);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    maxZoom: 19
+  }).addTo(map);
+
+  /* Marcador ASADA (azul) */
+  const asadaIcon = L.divIcon({
+    className: '',
+    html: `<div style="
+      background:#0369a1;width:38px;height:38px;
+      border-radius:50% 50% 50% 0;transform:rotate(-45deg);
+      border:3px solid #fff;box-shadow:0 3px 10px rgba(0,0,0,.35);
+      display:flex;align-items:center;justify-content:center;">
+      <span style="transform:rotate(45deg);color:#fff;font-size:15px;">💧</span>
+    </div>`,
+    iconSize: [38,38], iconAnchor: [19,38]
+  });
+  L.marker(ASADA, { icon: asadaIcon }).addTo(map)
+   .bindPopup('<strong>Oficina ASADA San Rafael</strong><span>Contiguo al Salón Comunal</span>');
+
+  /* Icono hidrante (rojo con número) */
+  function hidIcon(n) {
+    return L.divIcon({
+      className: '',
+      html: `<div class="hid-icon-wrap"><span>${n}</span></div>`,
+      iconSize: [32,32], iconAnchor: [16,32], popupAnchor: [0,-34]
+    });
+  }
+
+  /* Añadir los 22 hidrantes */
+  HIDRANTES.forEach(h => {
+    L.marker([h.lat, h.lng], { icon: hidIcon(h.n) })
+     .addTo(map)
+     .bindPopup(`<strong>Hidrante #${h.n}</strong><span>${h.loc}</span>`, { maxWidth: 220 });
+  });
+
+  /* Ajustar vista a todos los puntos */
+  const allPts = [[...ASADA], ...HIDRANTES.map(h => [h.lat, h.lng])];
+  map.fitBounds(allPts, { padding: [32, 32] });
+})();
+</script>
+
+</body>
+</html>
