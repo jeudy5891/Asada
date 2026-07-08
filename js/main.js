@@ -1,5 +1,5 @@
 /* =============================================
-   ASADA San Rafael de Ojo de Agua — Main JS
+   ASADA — Main JS
    ============================================= */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ── 6. LEAFLET MAP (Contacto) ── */
   const mapEl = document.getElementById('map');
   if (mapEl && typeof L !== 'undefined') {
-    const lat = 9.973762, lng = -84.21057;
+    const lat = 9.9333, lng = -84.0833;
     const map = L.map('map', { zoomControl: true, scrollWheelZoom: false })
                  .setView([lat, lng], 17);
 
@@ -103,10 +103,10 @@ document.addEventListener('DOMContentLoaded', () => {
       .bindPopup(`
         <div style="text-align:center;padding:.375rem .125rem;min-width:180px">
           <strong style="color:#0c2d48;font-size:.9375rem;display:block;margin-bottom:.25rem">
-            ASADA San Rafael
+            ASADA
           </strong>
           <span style="color:#475569;font-size:.8125rem">
-            Contiguo al Salón Comunal<br>San Rafael de Alajuela
+            Avenida Central, San José<br>Costa Rica
           </span>
         </div>
       `, { maxWidth: 220 })

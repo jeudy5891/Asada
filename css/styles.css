@@ -1,5 +1,5 @@
 /* ===================================================
-   ASADA San Rafael de Ojo de Agua — Estilos Globales
+   ASADA — Estilos Globales
    =================================================== */
 
 /* ===== VARIABLES ===== */
@@ -321,7 +321,16 @@ button { cursor: pointer; font-family: inherit; }
   height: auto;
   margin: 0 auto 1.75rem;
   animation: fadeDown .8s ease both;
-  filter: drop-shadow(0 4px 12px rgba(0,0,0,.4));
+  filter: brightness(0) invert(1) drop-shadow(0 4px 12px rgba(0,0,0,.4));
+}
+
+/* Fotos con personas: difuminadas para proteger identidad en la plantilla genérica */
+.blur-people {
+  filter: blur(9px);
+  transform: scale(1.04);
+}
+.blur-light {
+  filter: blur(2.5px);
 }
 .hero-badge {
   animation: fadeDown .8s ease .1s both;
