@@ -909,6 +909,9 @@ textarea.cf-input { resize: vertical; min-height: 100px; }
 .dato-value { font-size: 1.75rem; font-weight: 800; color: var(--blue-900); line-height: 1; margin-bottom: .375rem; }
 .dato-label { font-size: .8125rem; color: var(--gray-600); }
 
+.info-institucional-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem 2rem; }
+.info-institucional-grid span { overflow-wrap: break-word; word-break: break-word; }
+
 /* Junta Directiva */
 .junta-photo-wrap {
   border-radius: var(--r-xl);
@@ -1218,6 +1221,12 @@ textarea.cf-input { resize: vertical; min-height: 100px; }
 }
 .tramite-link:hover { color: var(--blue-900); gap: .6rem; }
 
+.tramites-support-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
 .tramites-aside {
   background: var(--blue-50);
   border: 1px solid var(--blue-100);
@@ -1270,7 +1279,7 @@ textarea.cf-input { resize: vertical; min-height: 100px; }
 
   .dropdown-menu {
     position: static;
-    transform: none;
+    transform: none !important;
     left: auto;
     box-shadow: none;
     background: rgba(255,255,255,.06);
@@ -1327,6 +1336,8 @@ textarea.cf-input { resize: vertical; min-height: 100px; }
   .hero-ctas     { flex-direction: column; align-items: center; }
   .section       { padding: 3.5rem 0; }
   .contacto-grid { gap: 2rem; }
+  .tramites-support-grid  { grid-template-columns: 1fr; }
+  .info-institucional-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 480px) {
