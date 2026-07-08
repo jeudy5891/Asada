@@ -217,11 +217,13 @@ button { cursor: pointer; font-family: inherit; }
   overflow: hidden;
   pointer-events: none;
 }
-.nav-dropdown:hover .dropdown-menu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(-50%) translateY(0);
-  pointer-events: all;
+@media (hover: hover) and (pointer: fine) {
+  .nav-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: all;
+  }
 }
 .dropdown-section {
   padding: .5rem 1rem .25rem;
