@@ -1331,8 +1331,15 @@ textarea.cf-input { resize: vertical; min-height: 100px; }
   .datos-grid    { grid-template-columns: 1fr 1fr; }
   .footer-grid   { grid-template-columns: 1fr; gap: 2rem; }
   .footer-bottom { flex-direction: column; gap: .625rem; text-align: center; }
-  .nosotros-layout { grid-template-columns: 1fr; }
-  .nos-sidebar   { position: static; }
+  .nosotros-layout { grid-template-columns: 1fr; gap: 0; }
+  .nos-sidebar   { display: none; }
+
+  /* Sin sidebar en móvil: centrar el banner y los encabezados de cada sección */
+  .page-hero-content { max-width: 100%; margin: 0 auto; text-align: center; }
+  .page-hero-content .breadcrumb { justify-content: center; }
+  .page-hero-content .page-hero-label { justify-content: center !important; }
+  .nos-section-header { text-align: center; }
+  .nos-section-header .section-label { justify-content: center !important; }
   .cf-row        { grid-template-columns: 1fr; }
   .hero-ctas     { flex-direction: column; align-items: center; }
   .section       { padding: 3.5rem 0; }
