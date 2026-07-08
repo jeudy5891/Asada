@@ -378,7 +378,7 @@ button { cursor: pointer; font-family: inherit; }
 .stats-bar { background: var(--blue-700); }
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   padding: 1.375rem 0;
 }
 .stat-item {
@@ -405,7 +405,7 @@ button { cursor: pointer; font-family: inherit; }
 .services-section { background: var(--gray-50); }
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.5rem;
   margin-top: 3rem;
 }
@@ -436,7 +436,7 @@ button { cursor: pointer; font-family: inherit; }
 .about-section { background: var(--white); }
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 4rem;
   align-items: center;
 }
@@ -492,7 +492,7 @@ button { cursor: pointer; font-family: inherit; }
 }
 .recibos-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 4rem;
   align-items: center;
 }
@@ -554,7 +554,7 @@ button { cursor: pointer; font-family: inherit; }
 .noticias-section { background: var(--gray-50); }
 .noticias-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.5rem;
   margin-top: 3rem;
 }
@@ -598,7 +598,7 @@ button { cursor: pointer; font-family: inherit; }
 .contacto-section { background: var(--white); }
 .contacto-grid {
   display: grid;
-  grid-template-columns: 1fr 1.6fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
   gap: 3.5rem;
   align-items: start;
 }
@@ -643,7 +643,7 @@ button { cursor: pointer; font-family: inherit; }
   padding: 1.75rem;
 }
 .contacto-form h3 { font-size: 1.125rem; font-weight: 700; color: var(--blue-900); margin-bottom: 1.375rem; }
-.cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+.cf-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: .75rem; }
 .cf-group { margin-bottom: .875rem; }
 .cf-label { display: block; font-size: .8125rem; font-weight: 600; color: var(--gray-700); margin-bottom: .325rem; }
 .cf-input {
@@ -669,7 +669,7 @@ textarea.cf-input { resize: vertical; min-height: 100px; }
 }
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1.6fr;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.6fr);
   gap: 2.5rem;
   margin-bottom: 3rem;
 }
@@ -797,7 +797,7 @@ textarea.cf-input { resize: vertical; min-height: 100px; }
 /* ===== NOSOTROS PAGE ===== */
 .nosotros-layout {
   display: grid;
-  grid-template-columns: 260px 1fr;
+  grid-template-columns: 260px minmax(0, 1fr);
   gap: 2.5rem;
   align-items: start;
   padding-top: 3.5rem;
@@ -882,7 +882,7 @@ textarea.cf-input { resize: vertical; min-height: 100px; }
 .tl-body  { font-size: .9375rem; color: var(--gray-600); line-height: 1.7; }
 
 /* Misión / Visión */
-.mv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.mv-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.5rem; }
 .mv-card { padding: 2rem; border-radius: var(--r-lg); }
 .mv-card-mision { background: var(--blue-50); border: 1px solid var(--blue-100); }
 .mv-card-vision { background: var(--blue-900); color: var(--white); }
@@ -897,7 +897,7 @@ textarea.cf-input { resize: vertical; min-height: 100px; }
 .mv-card-vision .mv-text { color: rgba(255,255,255,.8); }
 
 /* Datos generales */
-.datos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.datos-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
 .dato-card {
   background: var(--white);
   border: 1px solid var(--gray-200);
@@ -910,7 +910,7 @@ textarea.cf-input { resize: vertical; min-height: 100px; }
 .dato-value { font-size: 1.75rem; font-weight: 800; color: var(--blue-900); line-height: 1; margin-bottom: .375rem; }
 .dato-label { font-size: .8125rem; color: var(--gray-600); }
 
-.info-institucional-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem 2rem; }
+.info-institucional-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: .75rem 2rem; }
 .info-institucional-grid span { overflow-wrap: break-word; word-break: break-word; }
 
 /* Junta Directiva */
@@ -1122,7 +1122,7 @@ textarea.cf-input { resize: vertical; min-height: 100px; }
 .modal-sys-sub   { font-size: .8125rem; color: var(--blue-600); font-weight: 600; }
 .modal-stats {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: .75rem;
   margin-bottom: 1rem;
 }
@@ -1224,7 +1224,7 @@ textarea.cf-input { resize: vertical; min-height: 100px; }
 
 .tramites-support-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 1.5rem;
   margin-top: 3rem;
 }
@@ -1241,11 +1241,11 @@ textarea.cf-input { resize: vertical; min-height: 100px; }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
-  .services-grid   { grid-template-columns: 1fr 1fr; }
-  .noticias-grid   { grid-template-columns: 1fr 1fr; }
-  .footer-grid     { grid-template-columns: 1fr 1fr; }
-  .nosotros-layout { grid-template-columns: 220px 1fr; }
-  .datos-grid      { grid-template-columns: 1fr 1fr; }
+  .services-grid   { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .noticias-grid   { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .footer-grid     { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .nosotros-layout { grid-template-columns: 220px minmax(0, 1fr); }
+  .datos-grid      { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
 }
 
 @media (max-width: 768px) {
@@ -1324,14 +1324,14 @@ textarea.cf-input { resize: vertical; min-height: 100px; }
   .nav-link i { margin-left: auto; }
 
   /* Layout */
-  .stats-grid    { grid-template-columns: 1fr 1fr; }
-  .about-grid, .recibos-grid, .contacto-grid { grid-template-columns: 1fr; }
-  .services-grid, .noticias-grid { grid-template-columns: 1fr; }
-  .mv-grid       { grid-template-columns: 1fr; }
-  .datos-grid    { grid-template-columns: 1fr 1fr; }
-  .footer-grid   { grid-template-columns: 1fr; gap: 2rem; }
+  .stats-grid    { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .about-grid, .recibos-grid, .contacto-grid { grid-template-columns: minmax(0, 1fr); }
+  .services-grid, .noticias-grid { grid-template-columns: minmax(0, 1fr); }
+  .mv-grid       { grid-template-columns: minmax(0, 1fr); }
+  .datos-grid    { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .footer-grid   { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
   .footer-bottom { flex-direction: column; gap: .625rem; text-align: center; }
-  .nosotros-layout { grid-template-columns: 1fr; gap: 0; }
+  .nosotros-layout { grid-template-columns: minmax(0, 1fr); gap: 0; }
   .nos-sidebar   { display: none; }
 
   /* Sin sidebar en móvil: centrar el banner y los encabezados de cada sección */
@@ -1340,18 +1340,18 @@ textarea.cf-input { resize: vertical; min-height: 100px; }
   .page-hero-content .page-hero-label { justify-content: center !important; }
   .nos-section-header { text-align: center; }
   .nos-section-header .section-label { justify-content: center !important; }
-  .cf-row        { grid-template-columns: 1fr; }
+  .cf-row        { grid-template-columns: minmax(0, 1fr); }
   .hero-ctas     { flex-direction: column; align-items: center; }
   .section       { padding: 3.5rem 0; }
   .contacto-grid { gap: 2rem; }
-  .tramites-support-grid  { grid-template-columns: 1fr; }
-  .info-institucional-grid { grid-template-columns: 1fr; }
+  .tramites-support-grid  { grid-template-columns: minmax(0, 1fr); }
+  .info-institucional-grid { grid-template-columns: minmax(0, 1fr); }
 }
 
 @media (max-width: 480px) {
-  .stats-grid  { grid-template-columns: 1fr 1fr; }
-  .datos-grid  { grid-template-columns: 1fr; }
-  .junta-grid  { grid-template-columns: 1fr 1fr; }
-  .sistemas-grid { grid-template-columns: 1fr; }
-  .tramites-grid { grid-template-columns: 1fr; }
+  .stats-grid  { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .datos-grid  { grid-template-columns: minmax(0, 1fr); }
+  .junta-grid  { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .sistemas-grid { grid-template-columns: minmax(0, 1fr); }
+  .tramites-grid { grid-template-columns: minmax(0, 1fr); }
 }
