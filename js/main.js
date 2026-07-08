@@ -202,3 +202,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+
+/* ── FAQ ACORDEÓN (Trámites) ── */
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const wasOpen = item.classList.contains('open');
+  item.parentElement.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}

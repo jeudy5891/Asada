@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
   <!-- Estilos -->
-  <link rel="stylesheet" href="css/styles.css?v=5" />
+  <link rel="stylesheet" href="css/styles.css?v=6" />
 
   <style>
     /* Extra overrides for index only */
@@ -76,6 +76,19 @@
 
   </nav>
 </header>
+
+<!-- ── AVISO IMPORTANTE ── -->
+<div class="aviso-bar" id="avisoBar">
+  <div class="container aviso-bar-inner">
+    <div class="aviso-bar-text">
+      <strong>🟡 Aviso importante</strong>
+      <span>El jueves 15 de agosto habrá suspensión del servicio de 8:00 a.m. a 2:00 p.m.</span>
+    </div>
+    <button class="aviso-bar-close" aria-label="Cerrar aviso" onclick="this.closest('.aviso-bar').style.display='none'">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+</div>
 
 
 <!-- ════════════════════════════════════════
@@ -544,7 +557,12 @@
 
 <!-- Scripts -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="js/main.js?v=5"></script>
+<script src="js/main.js?v=6"></script>
+
+<!-- ── WHATSAPP FLOTANTE ── -->
+<a href="javascript:void(0)" class="whatsapp-float" aria-label="WhatsApp" target="_blank" rel="noopener">
+  <i class="fab fa-whatsapp"></i>
+</a>
 
 </body>
 </html>

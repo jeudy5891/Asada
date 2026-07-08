@@ -276,6 +276,61 @@ button { cursor: pointer; font-family: inherit; }
 .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
+/* ===== AVISO BAR ===== */
+.aviso-bar {
+  margin-top: 72px;
+  background: #fef3c7;
+  border-bottom: 1px solid #fde68a;
+}
+.aviso-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .75rem 1.5rem;
+  flex-wrap: wrap;
+}
+.aviso-bar-text {
+  display: flex;
+  align-items: center;
+  gap: .625rem;
+  flex-wrap: wrap;
+  font-size: .875rem;
+  color: #78350f;
+  line-height: 1.5;
+}
+.aviso-bar-text strong { font-weight: 700; white-space: nowrap; }
+.aviso-bar-close {
+  background: none;
+  border: none;
+  color: #92400e;
+  cursor: pointer;
+  font-size: .9375rem;
+  padding: .25rem;
+  flex-shrink: 0;
+  transition: var(--ease);
+}
+.aviso-bar-close:hover { color: #451a03; }
+
+/* ===== WHATSAPP FLOTANTE ===== */
+.whatsapp-float {
+  position: fixed;
+  bottom: 1.75rem;
+  right: 1.75rem;
+  width: 58px;
+  height: 58px;
+  background: #25d366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,.28);
+  z-index: 2500;
+  transition: var(--ease);
+}
+.whatsapp-float i { color: var(--white); font-size: 1.75rem; }
+.whatsapp-float:hover { transform: scale(1.08); box-shadow: 0 8px 22px rgba(0,0,0,.32); }
+
 /* ===== HERO ===== */
 .hero {
   position: relative;
@@ -765,7 +820,7 @@ textarea.cf-input { resize: vertical; min-height: 100px; }
 /* ===== SUBPAGINAS - PAGE HERO ===== */
 .page-hero {
   position: relative;
-  padding: 7rem 0 3.5rem;
+  padding: 3.5rem 0;
   background: linear-gradient(135deg, var(--blue-900) 0%, var(--blue-700) 100%);
   overflow: hidden;
 }
@@ -1248,6 +1303,44 @@ textarea.cf-input { resize: vertical; min-height: 100px; }
 .ta-item { display: flex; gap: .625rem; align-items: center; margin-bottom: .625rem; font-size: .9375rem; color: var(--gray-700); }
 .ta-item i { color: var(--blue-700); width: 18px; flex-shrink: 0; }
 
+/* FAQ Acordeón */
+.faq-list { max-width: 760px; margin: 2rem auto 0; display: flex; flex-direction: column; gap: .75rem; }
+.faq-item {
+  border: 1px solid var(--gray-200);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--white);
+  transition: var(--ease);
+}
+.faq-item.open { border-color: var(--blue-300); box-shadow: var(--shadow-sm); }
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.125rem 1.375rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: .9375rem;
+  font-weight: 700;
+  color: var(--blue-900);
+  text-align: left;
+  transition: var(--ease);
+}
+.faq-question:hover { background: var(--blue-50); }
+.faq-question i { color: var(--blue-600); flex-shrink: 0; transition: transform .25s ease; }
+.faq-item.open .faq-question i { transform: rotate(180deg); }
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .3s ease;
+  padding: 0 1.375rem;
+}
+.faq-item.open .faq-answer { max-height: 240px; padding: 0 1.375rem 1.25rem; }
+.faq-answer p { font-size: .875rem; color: var(--gray-600); line-height: 1.65; }
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
   .services-grid   { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
@@ -1258,9 +1351,9 @@ textarea.cf-input { resize: vertical; min-height: 100px; }
 }
 
 @media (max-width: 768px) {
-  /* Hero mobile — bajar contenido para no quedar bajo el header fijo (72px) */
+  /* Hero mobile — el aviso-bar ya despeja el header fijo, solo bajamos un poco el contenido */
   .hero-content {
-    padding-top: 96px;
+    padding-top: 32px;
     justify-content: flex-start;
   }
   .hero { align-items: flex-start; }
@@ -1363,4 +1456,7 @@ textarea.cf-input { resize: vertical; min-height: 100px; }
   .junta-grid  { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .sistemas-grid { grid-template-columns: minmax(0, 1fr); }
   .tramites-grid { grid-template-columns: minmax(0, 1fr); }
+  .whatsapp-float { width: 50px; height: 50px; bottom: 1.25rem; right: 1.25rem; }
+  .whatsapp-float i { font-size: 1.5rem; }
+  .aviso-bar-text { font-size: .8125rem; }
 }
